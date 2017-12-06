@@ -324,21 +324,21 @@ if($_REQUEST['load_db_auto']){
 	
 	
 	?>
-	<h2><span>Setup Success!</span></h2>
+	<h2><span>Configurado com Sucesso!</span></h2>
 	
 	<div class="box">
-		<p>That smells good !!! , I am done with my work now go ahead and start filling up your database.</p>
+		<p>Ocorreu tudo bem!!! O trabalho de criacao das tabelas da base de dados e do arquivo de configuracoes esta finalizado.</p>
 		<p>
-			<b> Note:-</b> We don't have any ugly success messages becuase you can see live changes on your screen.
+			<b> Obs:-</b> Caso ocorra algum erro a mensagem ira aparecer na tela.
 		</p>
 		<p>
-			The default login details are: <br>
-			Username:<strong> admin</strong> <br>
-			Password:<strong> admin</strong> <br>
-			You can change these from the settings page.
+			Login padrao: <br>
+			Usuario:<strong> admin</strong> <br>
+			Senha:<strong> admin</strong> <br>
+			Altere na tela de configuracao apos o login.
 		</p>
 		<p>
-			<input type="button" name="b" value="Login to the Dashboard!" onclick="window.location.href='index.php'" class="submit green">
+			<input type="button" name="b" value="Fazer o Login!" onclick="window.location.href='index.php'" class="submit green">
 		</p>
 	</div>
 	<?php
