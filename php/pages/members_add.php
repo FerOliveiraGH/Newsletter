@@ -110,6 +110,7 @@ if($_REQUEST['save'] && $_REQUEST['member_id'] && $_REQUEST['mem_email']){
 		"group_id"=>$group_ids,
 		"campaign_id"=>$campaign_ids,
 		"custom"=>$_REQUEST['mem_custom_val'],
+                "unsubscribe_date" => "0000-00-00"
 	);
 	$member_id = $newsletter->save_member($db,$_REQUEST['member_id'],$fields);
 	if($member_id){
