@@ -1,17 +1,16 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
 $send_id = (int)$_REQUEST['send_id'];
 if(!$send_id){
 	// basic error checking.
-	echo 'Please go back and pick a newsletter';
+	echo 'Por favor volte e selecione um newsletter';
 }
 
 
@@ -33,7 +32,7 @@ if($_REQUEST['process']){
 	?>
 	<html>
 	<head>
-	<title>Sending</title>
+	<title>Enviando</title>
 	<script language="javascript" src="layout/js/jquery.js"></script>
 	</head>
 	<body>
@@ -116,12 +115,12 @@ if($_REQUEST['process']){
 
 ?>
 
-<h1>Send</h1>
+<h1>Enviar</h1>
 
 
-<h2><span>Sending Newsletter: <?php echo $newsletter_data['subject'];?></span></h2>
+<h2><span>Enviando Newsletter: <?php echo $newsletter_data['subject'];?></span></h2>
 
-<p>Please don't close the window until it says "COMPLETE" below.</p>
+<p>Por favor não feche esta janela antes da mensagem de "COMPLETO".</p>
 
 <?php
 if($send_data['start_time'] > time()){
@@ -129,7 +128,7 @@ if($send_data['start_time'] > time()){
 
 	<div class="box">
 	<div style="font-size:20px; padding:20px;"> 
-	This newsletter has been scheduled for sending on <?php echo date('d/m/Y',$send_data['start_time']);?>
+	Esse newsletter tinha sido agendado para ser enviar em <?php echo date('d/m/Y',$send_data['start_time']);?>
 	</div>
 	</div>
 	<?php
@@ -143,24 +142,24 @@ if($send_data['start_time'] > time()){
 			<div style="font-size:20px; padding:20px; float: left; text-align:center;"> 
 			<img src="layout/images/send_success.jpg" />
 			<br /><br /> 
-			Complete!</div>
+			Completo!</div>
 		<?php }else{ ?>
 			<?php if($send_data['status'] == '6'){ ?>
 			<div style="font-size:20px; padding:20px; text-align:center;"> 
 			<img src="layout/images/send_success.jpg" />
 			<br /><br /> 
-			Paused...</div>
+			Pausado...</div>
 			<?php }else{ ?>
 			<div style="font-size:20px; padding:20px; text-align:center;"> 
 			<img src="layout/images/send_success.jpg" />
 			<br /><br /> 
-			Sending...</div>
+			Enviando...</div>
 			<?php } ?>
 		<?php } ?>
 		
 		<div style="font-size:20px; padding:20px; float: right;"> 
 		<a href="#" class="submit orange">
-			Sent to <span id="sent_to"><?php echo count($send_data['sent_members']);?></span> out of <span id="sent_total"><?php echo count($send_data['unsent_members']) + count($send_data['sent_members']);?></span> members
+			Enviado para <span id="sent_to"><?php echo count($send_data['sent_members']);?></span> fora de <span id="sent_total"><?php echo count($send_data['unsent_members']) + count($send_data['sent_members']);?></span> members
 			</a>
 			</div>
 		<div class="clear"></div>
@@ -169,9 +168,9 @@ if($send_data['start_time'] > time()){
 		<div style="padding:20px;">
 			<?php }else{ ?>
 				<?php if($send_data['status'] == '6'){ ?>
-				<a href="?p=send&send_id=<?php echo $send_id;?>&unpause=true" class="submit orange right_float">Continue Sending</a>
+				<a href="?p=send&send_id=<?php echo $send_id;?>&unpause=true" class="submit orange right_float">Continuar Enviando</a>
 				<?php }else{ ?>
-				<a href="?p=send&send_id=<?php echo $send_id;?>&pause=true" class="submit orange right_float">Pause Send</a>
+				<a href="?p=send&send_id=<?php echo $send_id;?>&pause=true" class="submit orange right_float">Pausar Envio</a>
 				<?php } ?>
 		</div>
 		<?php } ?>
