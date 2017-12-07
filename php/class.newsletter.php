@@ -1307,12 +1307,12 @@ class newsletter{
 		
 
 			<div class="form_elements">
-				<label>First Name</label>
+				<label>Nome</label>
 				<input type="text" class="text_input" name="first_name" value="<?php echo htmlspecialchars($member_data['first_name']);?>">
 			</div>
 
 			<div class="form_elements">
-				<label>Last Name</label>
+				<label>Sobrenome</label>
 				<input type="text" class="text_input" name="last_name" value="<?php echo htmlspecialchars($member_data['last_name']);?>">
 			</div>
 
@@ -1345,7 +1345,7 @@ class newsletter{
 
 			<?php } ?>
 				<div class="form_elements">
-					<label>Subscribe Under</label>
+					<label>Inscreva-se abaixo</label>
 					<?php foreach($groups as $group){ 
 					if(!$group['public'])continue;
 					?>
@@ -1365,7 +1365,7 @@ class newsletter{
 						<?php }
 						} ?>
 				<div class="form_elements">
-				<input type="submit" name="submit" value="Subscribe"> <br/>
+				<input type="submit" name="submit" value="Increver-se"> <br/>
 				</div>
 		<?php if($include_form_tag){ ?>
 		</form>

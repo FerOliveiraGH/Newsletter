@@ -1,16 +1,16 @@
 <?php include("public_header.html"); ?>
-			<h2>Update your details below</h2>
-			<?php echo $message;?>
-			<div id="subscribe_form">
-				<form action="" method="post">
-				<div class="form_elements">
-					<label>Email</label>
-					<input type="text" name="email" value="" class="input_text">
-				</div>
-				<div class="form_elements">
-					<input type="submit" name="login" value="Submit">
-				</div>
-				</form>
-			</div>
-			<span style="font-size:0.7em;">If you would like to unsubscribe completely from all notifications from <?php echo $newsletter->settings['name'];?> please <a href="?t=unsub_form">click here</a>.</span>
+<h2>Atualize seus detalhes abaixo</h2>
+<?php echo $message;?>
+<div id="subscribe_form">
+    <form action="" method="post">
+        <div class="form_elements">
+            <label>Email</label>
+            <input type="text" name="email" value="" class="input_text">
+        </div>
+        <div class="form_elements">
+            <input type="submit" name="login" value="Enviar">
+        </div>
+    </form>
+</div>
+<span style="font-size:0.7em;">Se você deseja cancelar completamente todas as notificações de <?php echo $newsletter->settings['name'];?> por favor <a href="?t=unsub_form">clique aqui</a>.</span>
 <?php include("public_footer.html"); ?>
