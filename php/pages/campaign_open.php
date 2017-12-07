@@ -120,7 +120,7 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 	<table cellpadding="5" class="stats">
 		<tr>
 			<th>Newsletter</th>
-			<th>Enviado em</th>
+			<th>Enviar em</th>
 			<th>Ação</th>
 		</tr>
 		<?php
@@ -132,8 +132,8 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 		foreach($campaign_newsletters as $newsletter_row){
 			?>
 			<tr>
-				<td><?php echo $newsletter_row['subject'];?></td>
-				<td><?php echo floor($newsletter_row['send_time']/86400);?> days after join</td>
+				<td><?php echo $newsletter_row['subject'];?></td> 
+				<td><?php echo floor($newsletter_row['send_time']/86400);?> dia(s) depois de inscrito</td>
 				<td>
 					<a href="?p=open&newsletter_id=<?php echo $newsletter_row['newsletter_id'];?>">Editar Newsletter</a>
 					<a href="?p=campaign_open&campaign_id=<?php echo $campaign_id;?>&remove_newsletter_id=<?php echo $newsletter_row['newsletter_id'];?>" onclick="return confirm('Really remove from campaign?');" style="color:#FF0000;">Remover da Campanha</a>
