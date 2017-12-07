@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `campaign` (
   `campaign_name` varchar(255) NOT NULL,
   `create_date` date NOT NULL,
   PRIMARY KEY  (`campaign_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `campaign_member` (
   `current_newsletter_id` int(11) NOT NULL,
   `join_time` int(11) NOT NULL,
   PRIMARY KEY  (`campaign_id`,`member_id`)
-) TYPE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `campaign_newsletter` (
   `newsletter_id` int(11) NOT NULL,
   `send_time` int(11) NOT NULL,
   PRIMARY KEY  (`campaign_id`,`newsletter_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -40,16 +40,16 @@ CREATE TABLE IF NOT EXISTS `group` (
   `group_name` varchar(255) NOT NULL,
   `public` int(11) NOT NULL,
   PRIMARY KEY  (`group_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `group` VALUES (1, 'General e-Newsletter', 1);
+INSERT IGNORE INTO `group` VALUES (1, 'Default Newsletter', 1);
 
 
 CREATE TABLE IF NOT EXISTS `image` (
   `image_id` int(11) NOT NULL auto_increment,
   `image_url` text NOT NULL,
   PRIMARY KEY  (`image_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `link` (
   `link_id` int(11) NOT NULL auto_increment,
   `link_url` text NOT NULL,
   PRIMARY KEY  (`link_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -68,31 +68,31 @@ CREATE TABLE IF NOT EXISTS `link_open` (
   `send_id` int(11) NOT NULL,
   `timestamp` int(11) NOT NULL,
   PRIMARY KEY  (`link_open_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
 CREATE TABLE IF NOT EXISTS `member` (
-  `member_id` int(11) NOT NULL auto_increment,
+  `member_id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `join_date` date NOT NULL,
-  `ip_address` varchar(15) NOT NULL,
-  `unsubscribe_date` date NOT NULL,
-  `unsubscribe_send_id` int(11) NOT NULL,
-  PRIMARY KEY  (`member_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+  `ip_address` varchar(15) DEFAULT NULL,
+  `unsubscribe_date` date DEFAULT NULL,
+  `unsubscribe_send_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`member_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
 CREATE TABLE IF NOT EXISTS `member_field` (
-  `member_field_id` int(11) NOT NULL auto_increment,
+    `member_field_id` int(11) NOT NULL AUTO_INCREMENT,
   `field_name` varchar(255) NOT NULL,
   `field_type` varchar(20) NOT NULL,
-  `required` int(11) NOT NULL,
-  PRIMARY KEY  (`member_field_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+  `required` int(11) DEFAULT NULL,
+  PRIMARY KEY (`member_field_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `member_field_value` (
   `member_field_id` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY  (`member_id`,`member_field_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -109,10 +109,10 @@ CREATE TABLE IF NOT EXISTS `member_group` (
   `member_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   PRIMARY KEY  (`member_id`,`group_id`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `newsletter` (
+CREATE TABLE IF NOT EXISTS `newsletter` (
   `newsletter_id` int(11) NOT NULL auto_increment,
   `create_date` date NOT NULL,
   `template` varchar(100) collate utf8_bin NOT NULL,
@@ -128,28 +128,28 @@ CREATE TABLE `newsletter` (
 CREATE TABLE IF NOT EXISTS `newsletter_member` (
   `send_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
-  `sent_time` int(11) NOT NULL,
+  `sent_time` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL,
-  `open_time` int(11) NOT NULL,
-  `bounce_time` int(11) NOT NULL,
-  PRIMARY KEY  (`send_id`,`member_id`),
+  `open_time` int(11) DEFAULT NULL,
+  `bounce_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`send_id`,`member_id`),
   KEY `open_time` (`open_time`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
 CREATE TABLE IF NOT EXISTS `send` (
-  `send_id` int(11) NOT NULL auto_increment,
+  `send_id` int(11) NOT NULL AUTO_INCREMENT,
   `start_time` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `finish_time` int(11) NOT NULL,
+  `finish_time` int(11) DEFAULT NULL,
   `newsletter_id` int(11) NOT NULL,
   `campaign_id` int(11) NOT NULL,
-  `template_html` text NOT NULL,
-  `full_html` text NOT NULL,
-  PRIMARY KEY  (`send_id`),
+  `template_html` text,
+  `full_html` text,
+  PRIMARY KEY (`send_id`),
   KEY `newsletter_id` (`newsletter_id`)
-) TYPE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 
 
@@ -157,7 +157,8 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `key` varchar(255) NOT NULL,
   `val` varchar(255) NOT NULL,
   PRIMARY KEY  (`key`)
-) TYPE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE IF NOT EXISTS `sync` (
   `sync_id` int(11) NOT NULL auto_increment,
@@ -185,8 +186,6 @@ CREATE TABLE IF NOT EXISTS `sync_group` (
   PRIMARY KEY  (`sync_id`,`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-
-
 CREATE TABLE IF NOT EXISTS `sync_member` (
   `sync_id` int(11) NOT NULL,
   `sync_unique_id` int(11) NOT NULL,
@@ -197,9 +196,9 @@ CREATE TABLE IF NOT EXISTS `sync_member` (
   KEY `member_id` (`member_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `settings` VALUES ('bounce_email', 'you@email.com');
-INSERT INTO `settings` VALUES ('default_template', 'dark');
-INSERT INTO `settings` VALUES ('from_email', 'you@email.com');
-INSERT INTO `settings` VALUES ('from_name', 'Newsletter');
-INSERT INTO `settings` VALUES ('password', 'password');
-INSERT INTO `settings` VALUES ('username', 'admin');
+INSERT IGNORE INTO `settings` VALUES ('bounce_email', 'seu@email.com');
+INSERT IGNORE INTO `settings` VALUES ('default_template', 'Plain Newsletter');
+INSERT IGNORE INTO `settings` VALUES ('from_email', 'seu@email.com');
+INSERT IGNORE INTO `settings` VALUES ('from_name', 'Sua Campanha');
+INSERT IGNORE INTO `settings` VALUES ('password', 'admin');
+INSERT IGNORE INTO `settings` VALUES ('username', 'admin');
