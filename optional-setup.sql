@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `campaign` (
 CREATE TABLE IF NOT EXISTS `campaign_member` (
   `campaign_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
-  `current_newsletter_id` int(11) NOT NULL,
+  `current_newsletter_id` int(11) DEFAULT NULL,
   `join_time` int(11) NOT NULL,
   PRIMARY KEY  (`campaign_id`,`member_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
