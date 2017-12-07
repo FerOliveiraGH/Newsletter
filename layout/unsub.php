@@ -1,5 +1,5 @@
 <?php include("public_header.html"); ?>
-			<h2>Unsubscribe Successful</h2>
+<h2>Desinscrito com Sucesso</h2>
 
-<p>Thank you</p>
+<p>Obrigado!</p>
 <?php include("public_footer.html"); ?>

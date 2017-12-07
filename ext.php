@@ -164,7 +164,7 @@ switch($_REQUEST['t']){
 				$member_id = $existing['member_id'];
 			}else{
 				$email = '';
-				$message = '<p>Sorry, we could not find your email address in our database. Please check your email address and try again.
+				$message = '<p>Desculpe, não conseguimos encontrar seu endereço de e-mail em nosso banco de dados. Verifique seu endereço de e-mail e tente novamente.
 					<br /> <a href="javascript:history.go(-1);" id="green"> Hide </a>
 				</p>';
 			}
@@ -356,7 +356,7 @@ switch($_REQUEST['t']){
 				ob_end_clean();
 				header("Location: ".$newsletter->settings['unsubscribe_redirect']);
 			}else{
-				include("layout/unsub.html");
+				include("layout/unsub.php");
 			}
 		}else{
 			echo "Bad hash.";
@@ -378,8 +378,8 @@ switch($_REQUEST['t']){
 				$member_id = $existing['member_id'];
 			}else{
 				$email = '';
-				$message = '<p>Sorry, we could not find your email address in our database. Please check your email address and try again.
-					<br /> <a href="javascript:history.go(-1);" id="green"> Go Back </a>
+				$message = '<p>Desculpe, não conseguimos encontrar seu endereço de e-mail em nosso banco de dados. Verifique seu endereço de e-mail e tente novamente.
+					<br /> <a href="javascript:history.go(-1);" id="green"> Voltar </a>
 				</p>';
 			}
 		}
@@ -387,6 +387,6 @@ switch($_REQUEST['t']){
 			$newsletter->unsubscribe($db,$member_id);
 			$message = 'Unsubscribe successful';
 		}
-		include("layout/unsub_form.html");
+		include("layout/unsub_form.php");
 		exit;
 }
