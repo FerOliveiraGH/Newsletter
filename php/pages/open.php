@@ -150,8 +150,8 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 				
 			</td>
 			<td>
-				<input type="submit" name="save" value="Save" class="submit green">
-				<a href="?p=create&newsletter_id=<?php echo $newsletter_data['newsletter_id'];?>" class="submit orange right_float">Complete Edit</a>
+				<input type="submit" name="save" value="Salvar" class="submit green">
+				<a href="?p=create&newsletter_id=<?php echo $newsletter_data['newsletter_id'];?>" class="submit orange right_float">Edição Completa</a>
 			</td>
 		</tr>
 	</table>
@@ -168,7 +168,7 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 				<label>Prévia no Navegador</label>
 			</td>
 			<td>
-				<div class="form_field"><input type="submit" name="preview1" value="Abrir Prévia" onclick="this.form.action='preview.php'; popupwin=window.open('about:blank','popupwin','width=700,height=800,scrollbars=1,resizeable=1'); if(!popupwin){alert('Please disable popup blocker'); return false;} this.form.target='popupwin';"></div>
+				<div class="form_field"><input type="submit" name="preview1" value="Abrir Prévia" onclick="this.form.action='preview.php'; popupwin=window.open('about:blank','popupwin','width=700,height=800,scrollbars=1,resizeable=1'); if(!popupwin){alert('Por favor habilite pop-up na pagina'); return false;} this.form.target='popupwin';"></div>
 			</td>
 		</tr>
 		<tr>
