@@ -159,7 +159,7 @@ if($send_data['start_time'] > time()){
 		
 		<div style="font-size:20px; padding:20px; float: right;"> 
 		<a href="#" class="submit orange">
-			Enviado para <span id="sent_to"><?php echo count($send_data['sent_members']);?></span> fora de <span id="sent_total"><?php echo count($send_data['unsent_members']) + count($send_data['sent_members']);?></span> members
+			Enviado para <span id="sent_to"><?php echo count($send_data['sent_members']);?></span> no total de <span id="sent_total"><?php echo count($send_data['unsent_members']) + count($send_data['sent_members']);?></span> Membro(s)
 			</a>
 			</div>
 		<div class="clear"></div>
