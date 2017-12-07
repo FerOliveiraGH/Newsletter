@@ -67,7 +67,7 @@ if(isset($_REQUEST['iframe'])){
 
 ?>
 
-<a href="?p=open&newsletter_id=<?php echo $newsletter_id;?>" class="submit orange right_float">&laquo; Back to newsletter</a>
+<a href="?p=open&newsletter_id=<?php echo $newsletter_id;?>" class="submit orange right_float">&laquo; Voltar para newsletter</a>
 
 <h2><span>Newsletter Link Clique:</span></h2>
 
@@ -89,7 +89,7 @@ if(isset($_REQUEST['iframe'])){
 		</tr>
 		<tr>
 			<td>
-				<?php echo date("Y-m-d H:i:s",$send['start_time']);?>
+				<?php echo date("d/m/Y H:i:s",$send['start_time']);?>
 			</td>
 			<td>
 				<?php echo $newsletter_data['subject'];?>
@@ -98,16 +98,16 @@ if(isset($_REQUEST['iframe'])){
 				&lt;<?php echo $newsletter_data['from_name'];?>&gt; <?php echo $newsletter_data['from_email'];?> 
 			</td>
 			<td>
-				<?php echo count($send['sent_members']);?> members
+				<?php echo count($send['sent_members']);?> Membro(s)
 			</td>
 			<td>
-				<?php echo count($send['opened_members']);?> members
+				<?php echo count($send['opened_members']);?> Membro(s)
 			</td>
 			<td>
-				<?php echo count($send['unsub_members']);?> members
+				<?php echo count($send['unsub_members']);?> Membro(s)
 			</td>
 			<td>
-				<?php echo count($send['bounce_members']);?> members 
+				<?php echo count($send['bounce_members']);?> Membro(s) 
 			</td>
 		</tr>
 	</table>
@@ -131,25 +131,25 @@ if(isset($_REQUEST['iframe'])){
 				</td>
 				<td>
 					<?php if(isset($member_data['opened'][$send_id])){
-						echo 'YES: '.date("Y-m-d H:i:s",$member_data['opened'][$send_id]['open_time']);
+						echo 'SIM: '.date("d/m/Y H:i:s",$member_data['opened'][$send_id]['open_time']);
 					}else{
-						echo 'NO';
+						echo 'NÃO';
 					}
 					?>
 				</td>
 				<td>
 					<?php if(isset($member_data['unsubscribe'][$send_id])){
-						echo 'YES: '.$member_data['unsubscribe'][$send_id]['unsubscribe_date'];
+						echo 'SIM: '.$member_data['unsubscribe'][$send_id]['unsubscribe_date'];
 					}else{
-						echo 'NO';
+						echo 'NÃO';
 					}
 					?>
 				</td>
 				<td>
 					<?php if(isset($member_data['bounces'][$send_id])){
-						echo 'YES: '.date("Y-m-d H:i:s",$member_data['bounces'][$send_id]['bounce_time']);
+						echo 'SIM: '.date("d/m/Y H:i:s",$member_data['bounces'][$send_id]['bounce_time']);
 					}else{
-						echo 'NO';
+						echo 'NÃO';
 					}
 					?>
 				</td>
