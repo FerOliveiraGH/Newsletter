@@ -1,14 +1,13 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
-$page_title = "Create Newsletter";
+$page_title = "Criar Newsletter";
 
 $input_method = 'manual';
 
@@ -256,7 +255,7 @@ tinyMCE.init({
 				image_height = $(n).height();
 			}else{
 				$('#image_size').val('');
-				$('#image_alt').val('Image Description');
+				$('#image_alt').val('Descrição da Imagem');
 				image_width = image_height = 0;
 			}
       });
@@ -267,7 +266,7 @@ tinyMCE.init({
 
 
 
-<h1>Create Newsletter</h1>
+<h1>Criar Newsletter</h1>
 
 <form action="?p=create&save=true#editor" method="post" id="create_form" enctype="multipart/form-data">
 
@@ -278,7 +277,7 @@ tinyMCE.init({
 <input type="hidden" name="next_action_key" id="next_action_key" value="">
 <input type="hidden" name="next_action_val" id="next_action_val" value="">
 
-<h2><span>Step 1:</span> Template</h2>
+<h2><span>Passo 1:</span> Template</h2>
 
 <div class="box templates">
 	<?php
@@ -313,13 +312,13 @@ $('.template').click(function(){
 </script>
 
 
-<h2><span>Step 2:</span> Settings</h2>
+<h2><span>Passo 2:</span> Configurar</h2>
 
 <div class="box">
 	<table cellpadding="5">
 		<tr>
 			<td>
-				<label>Email Subject<span class="required">*</span></label>
+				<label>Assunto do Email<span class="required">*</span></label>
 			</td>
 			<td>
 			<div class="form_field"><input type="text" class="input" name="subject" value="<?php echo $newsletter_data['subject'];?>"></div>
@@ -327,7 +326,7 @@ $('.template').click(function(){
 		</tr>
 		<tr>
 			<td>
-				<label>From Name<span class="required">*</span></label>
+				<label>Nome de Envio<span class="required">*</span></label>
 			</td>
 			<td>
 				<div class="form_field"><input type="text" class="input" name="from_name" value="<?php echo $newsletter_data['from_name'];?>"></div>
@@ -335,7 +334,7 @@ $('.template').click(function(){
 		</tr>
 		<tr>
 			<td>
-				<label>From Email<span class="required">*</span></label>
+				<label>Email de Envio<span class="required">*</span></label>
 			</td>
 			<td>
 				<div class="form_field"><input type="text" class="input" name="from_email" value="<?php echo $newsletter_data['from_email'];?>"></div>
@@ -343,10 +342,10 @@ $('.template').click(function(){
 		</tr>
 		<tr>
 			<td>
-				<label>Bounce Email<span class="required">*</span></label>
+				<label>Email de Resposta<span class="required">*</span></label>
 			</td>
 			<td>
-				<div class="form_field"><input type="text" class="input" name="bounce_email" value="<?php echo $newsletter_data['bounce_email'];?>"></div> (bounced newsletters get sent to this address)
+				<div class="form_field"><input type="text" class="input" name="bounce_email" value="<?php echo $newsletter_data['bounce_email'];?>"></div> (resposta do newsletter sera enviada nesse email)
 			</td>
 		</tr>
 		<tr>
@@ -354,14 +353,14 @@ $('.template').click(function(){
 				
 			</td>
 			<td>
-				<input type="submit" name="save_settings" value="Save Settings" class="submit orange">
+				<input type="submit" name="save_settings" value="Salvar Configuração" class="submit orange">
 			</td>
 		</tr>
 	</table>
 </div>
 
 
-<h2><span>Step 3:</span> Content</h2>
+<h2><span>Passo 3:</span> Conteudo</h2>
 
 
 <script language="javascript" type="text/javascript">
@@ -390,7 +389,7 @@ $('.template').click(function(){
 	}else{
 	?>
 <div class="preview_editor">
-	<input type="submit" name="preview1" value="Open Preview" onclick="$('#next_action_key').val('preview');">
+	<input type="submit" name="preview1" value="Vizualizar" onclick="$('#next_action_key').val('preview');">
 </div><!-- end preview_editor -->
 	<table cellpadding="5">
 		<tr>
@@ -398,7 +397,7 @@ $('.template').click(function(){
 				<table cellpadding="5">
 					<tr>
 						<td valign="top">
-							<b> Note:- Do not change values inside curley barces "{ }"</b>
+							<b> OBS:- Não altere os caracteres "{ }"</b>
 						</td>
 					</tr>
 						<tr>
@@ -409,13 +408,13 @@ $('.template').click(function(){
 						<tr>
 						<td valign="top">
 							<div id="image_insert">
-								<h3>Insert image into article:</h3>
+								<h3>Insira uma Imagem:</h3>
 								<?php if($input_method=='wizard'){ ?>
 								Your "main image" above will display at the top of your article.<br>
 								<?php } ?>
 								<div class="form_field">
 								<select name="image_url" id="image_url">
-								<option value=""> #1: select an image </option>
+								<option value=""> #1: selecione uma imagem </option>
 								<?php
 								foreach($newsletter->get_images($db,$newsletter_id) as $attachment){ 
 								?>
@@ -426,18 +425,18 @@ $('.template').click(function(){
 								<br>
 								<div class="form_field">
 								<select name="image_size" id="image_size" onchange="$('#image_alt')[0].focus().select();">
-								<option value=""> #2: select size </option>
-								<option value="replace">Replace Existing</option>
+								<option value=""> #2: selecione o tamanho </option>
+								<option value="replace">Substituir Existente</option>
 								<option value="100x100">Thumbnail #1 - 100x100</option>
 								</select>
 								</div>
 								<br>
 								<div class="form_field">
-								<input type="text" name="image_alt" id="image_alt" value="Image Description" onfocus="if(this.value=='Image Description')this.value='';">
+								<input type="text" name="image_alt" id="image_alt" value="Descrição da Imagem" onfocus="if(this.value=='Descrição da Imagem')this.value='';">
 								</div>
 								<br>
-								<input type="button" name="image_insert" onclick="insert_image();" value="Insert Image" class="submit gray">
-								<a href="#" onclick="$('#image_insert').hide(); $('#image_upload').show(); return false;" class="submit orange">Upload New Image</a>
+								<input type="button" name="image_insert" onclick="insert_image();" value="Inserir Imagem" class="submit gray">
+								<a href="#" onclick="$('#image_insert').hide(); $('#image_upload').show(); return false;" class="submit orange">Enviar Nova Imagem</a>
 							</div>
 							<div id="image_upload" style="display:none;">
 								<h3>Upload new Image:</h3>
@@ -455,8 +454,8 @@ $('.template').click(function(){
 								var size = $('#image_size').val();
 								$('#image_size').val('');
 								var alt = $('#image_alt').val();
-								if(alt=='Image Description')alt='';
-								$('#image_alt').val('Image Description');
+								if(alt=='Descrição da Imagem')alt='';
+								$('#image_alt').val('Descrição da Imagem');
 								// validation:
 								if(!src || src == '')return;
 								// is the user currently clicking on an image:
@@ -496,30 +495,30 @@ $('.template').click(function(){
 	<?php } ?>
 </div>
 
-<h2><span>Step 4:</span> Preview</h2>
+<h2><span>Passo 4:</span> Pre-Visualizar</h2>
 <div class="box">
 	<table cellpadding="5">
 		<tr>
 			<td>
-				Preview in Email
+				Email de Pre-Visualização
 			</td>
 			<td>
 				<div class="form_field">
 				 <input type="text" name="preview_email" id="preview_email" value="<?php echo $newsletter->email;?>">
 				 </div>
 			</td>
-			<td><input type="submit" name="preview2" value="Send Preview" onclick="$('#next_action_key').val('preview_email');$('#next_action_val').val($('#preview_email').val());" class="submit gray"> </td>
+			<td><input type="submit" name="preview2" value="Enviar Pré-Visualização" onclick="$('#next_action_key').val('preview_email');$('#next_action_val').val($('#preview_email').val());" class="submit gray"> </td>
 		</tr>
 	</table>
 	
 </div>
 
 
-<h2><span>Step 5:</span> Save</h2>
+<h2><span>Passo 5:</span> Salvar</h2>
 
 <div class="box">
-	<p>Once you are happy with your preview, click this button to go to the next step.</p>
-	<input type="submit" name="save_cont" value="Save Newsletter and Continue to next step..." onclick="this.form.action='?p=create&save=true&next=true'; this.form.target='_self';" 				 <input type="submit" name="preview2" value="Send Preview" onclick="$('#next_action_key').val('preview_email');$('#next_action_val').val($('#preview_email').val());" class="submit green"> 
+	<p>Uma vez pré-visualizado,clique nesse botão para o próximo passo.</p>
+	<input type="submit" name="save_cont" value="Salvar Newsletter e Continuar o Próximo Passo..." onclick="this.form.action='?p=create&save=true&next=true'; this.form.target='_self';" 				 <input type="submit" name="preview2" value="Send Preview" onclick="$('#next_action_key').val('preview_email');$('#next_action_val').val($('#preview_email').val());" class="submit green"> 
 </div>
 
 
