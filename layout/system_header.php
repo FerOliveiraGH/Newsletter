@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title><?php echo _l('Newsletter System');?><?php echo ($page_title)?' :: '._l($page_title):'';?></title>
+	<title><?php echo _l('Sistema de Newsletter');?><?php echo ($page_title)?' :: '._l($page_title):'';?></title>
 	<script language="javascript" src="layout/js/jquery.js"></script>
 	<script language="javascript" src="layout/js/jquery.flot.js"></script>
 	<script language="javascript" src="layout/js/javascript.js"></script>
