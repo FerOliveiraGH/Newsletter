@@ -1,22 +1,21 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
 $newsletter_id = (int)$_REQUEST['newsletter_id'];
 if(!$newsletter_id){
 	// basic error checking.
-	echo '<div class="newsletter_error">Newsletter does not exists, Shown template and stats might not accurate </div>';
+	echo '<div class="newsletter_error">O Newsletter não existe, o modelo e as estatísticas apresentadas podem não ser precisas </div>';
 }
 $send_id = (int)$_REQUEST['send_id'];
 if(!$send_id){
 	// basic error checking.
-	echo '<div class="newsletter_error">Newsletter does not exists, Shown template and stats might not accurate </div>';
+	echo '<div class="newsletter_error">Newsletter não existe, O modelo e as estatísticas apresentadas podem não ser precisas </div>';
 }
 $newsletter_data = $newsletter->get_newsletter($db,$newsletter_id);
 // todo - check this send belongs to this newsletter, oh wel.
@@ -70,23 +69,23 @@ if(isset($_REQUEST['iframe'])){
 
 <a href="?p=open&newsletter_id=<?php echo $newsletter_id;?>" class="submit orange right_float">&laquo; Back to newsletter</a>
 
-<h2><span>Newsletter Link Clicks:</span></h2>
+<h2><span>Newsletter Link Clique:</span></h2>
 
 <iframe src="?p=stats&iframe=true&newsletter_id=<?php echo $newsletter_id;?>&send_id=<?php echo $send_id;?>" frameborder="0" style="border:1px solid #CCCCCC; width:700px; height:600px;"></iframe>
 
 
-<h2><span>Newsletter Stats:</span></h2>
+<h2><span>Newsletter Status:</span></h2>
 
 <div class="box">
 	<table cellpadding="5" class="stats">
 		<tr>
-			<th>Send Date</th>
-			<th>Email Subject</th>
-			<th>Sent From</th>
-			<th>Sent To</th>
-			<th>Opened By</th>
-			<th>Unsubscribed</th>
-			<th>Bounces</th>
+			<th>Data Envio</th>
+			<th>Assunto Email</th>
+			<th>Enviado de</th>
+			<th>Enviado para</th>
+			<th>Aberto por</th>
+			<th>Desinscritos</th>
+			<th>Pulados</th>
 		</tr>
 		<tr>
 			<td>
@@ -118,10 +117,10 @@ if(isset($_REQUEST['iframe'])){
 <div class="box">
 	<table cellpadding="5" class="stats">
 		<tr>
-			<th>Sent To</th>
-			<th>Opened</th>
-			<th>Unsubscribed</th>
-			<th>Bounced</th>
+			<th>Enviado para</th>
+			<th>Aberto por</th>
+			<th>Desinscritos</th>
+			<th>Pulados</th>
 		</tr>
 		<?php foreach($send['sent_members'] as $sent_member){
 			$member_data = $newsletter->get_member($db,$sent_member['member_id']);
