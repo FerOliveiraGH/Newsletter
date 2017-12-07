@@ -240,15 +240,15 @@ if($pending){
 	
 	
 
-		<h2><span>Pending Sends for this newsletter:</span></h2>
+		<h2><span>Envios Pendentes desse newsletter:</span></h2>
 		
 		<div class="box">
 			<table cellpadding="5">
 				<tr>
 					<td>Newsletter</td>
-					<td>Start Send</td>
-					<td>Progress</td>
-					<td>Action</td>
+					<td>Começo do Envio</td>
+					<td>Progresso</td>
+					<td>Ação</td>
 				</tr>
 				<?php
 				foreach($pending as $send){
@@ -257,7 +257,7 @@ if($pending){
 						<td><?php echo $send['subject'];?></td>
 						<td><?php echo $send['start_date'];?></td>
 						<td><?php echo $send['progress'];?></td>
-						<td><a href="?p=send&send_id=<?php echo $send['send_id'];?>">Continue Sending</a></td>
+						<td><a href="?p=send&send_id=<?php echo $send['send_id'];?>">Continuar Enviando</a></td>
 					</tr>
 					<?php
 				}
@@ -273,17 +273,17 @@ if($pending){
 if($sends){
 	?>
 	
-<h2><span>Previous Sends of this Newsletter</span></h2>
+<h2><span>Envios anteriores deste Newsletter</span></h2>
 	
 <div class="box">
 	<table cellpadding="5">
 		<tr>
-			<td>Sent Date</td>
-			<td>Sent To</td>
-			<td>Opened By</td>
-			<td>Unsubscribed</td>
-			<td>Bounces</td>
-			<td>Link Clicks</td>
+			<td>Data Enviado</td>
+			<td>Enviado para</td>
+			<td>Aberto por</td>
+			<td>Desinscritos</td>
+			<td>Pulados</td>
+			<td>Ação</td>
 			<td></td>
 		</tr>
 		<?php
@@ -292,22 +292,22 @@ if($sends){
 			?>
 		<tr>
 			<td>
-				<?php echo date("Y-m-d",$send['start_time']);?>
+				<?php echo date("d/m/Y",$send['start_time']);?>
 			</td>
 			<td>
-				<?php echo count($send['sent_members']);?> members
+				<?php echo count($send['sent_members']);?> membro(s)
 			</td>
 			<td>
-				<?php echo count($send['opened_members']);?> members
+				<?php echo count($send['opened_members']);?> membro(s)
 			</td>
 			<td>
-				<?php echo count($send['unsub_members']);?> members
+				<?php echo count($send['unsub_members']);?> membro(s)
 			</td>
 			<td>
-				<?php echo count($send['bounce_members']);?> members
+				<?php echo count($send['bounce_members']);?> membro(s)
 			</td>
 			<td>
-				<a href="?p=stats&newsletter_id=<?php echo $newsletter_id;?>&send_id=<?php echo $send['send_id'];?>">View Stats</a>
+				<a href="?p=stats&newsletter_id=<?php echo $newsletter_id;?>&send_id=<?php echo $send['send_id'];?>">Ver Status</a>
 			</td>
 		</tr>
 		<?php } ?>
