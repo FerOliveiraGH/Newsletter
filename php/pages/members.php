@@ -306,7 +306,7 @@ if($_REQUEST['edit_member_id']){
 			?>
 			<tr>
 				<td colspan="<?php echo 10+count($member_fields);?>" style="text-align:center;">
-					<div class="newsletter_error">Nenhum resultado encontrado <b>você pode <a href="?p=members_add">adicionar alguns detalhes</a> se quiser.</b></div>
+					<div class="newsletter_error">Nenhum resultado encontrado você pode <b><a href="?p=members_add">adicionar membros</a></b> se quiser.</div>
 				</td>
 			</tr>
 			<?php
