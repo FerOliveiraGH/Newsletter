@@ -1,10 +1,9 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
@@ -60,36 +59,36 @@ if(defined("_DB_NAME") && $show_menu){ ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Newsletter <b class="caret"></b> </a>
 						<ul class="dropdown-menu">
-							<li><a href="?p=create"> Create Newsletter </a></li>
-							<li><a href="?p=past"> View Newsletter </a></li>
+							<li><a href="?p=create"> Criar Newsletter </a></li>
+							<li><a href="?p=past"> Ver Newsletter </a></li>
 						</ul>
 					</li>
 					<li class="divider-vertical"></li>
 					<li class="dropdown">
-						<a href="?p=campaign" class="dropdown-toggle" data-toggle="dropdown"> Campaign </a>
+						<a href="?p=campaign" class="dropdown-toggle" data-toggle="dropdown"> Campanhas </a>
 					</li>
 					<li class="divider-vertical"></li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Members <b class="caret"></b> </a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Membros <b class="caret"></b> </a>
 						<ul class="dropdown-menu">
-							<li><a href="?p=members_add"> Add Members </a></li>
-							<li><a href="?p=members"> View Members </a></li>
+							<li><a href="?p=members_add"> Adicionar Membros </a></li>
+							<li><a href="?p=members">Ver Membros </a></li>
 						</ul>
 					</li>
 					<li class="divider-vertical"></li>
 					<li class="dropdown">
-						<a href="?p=groups" class="dropdown-toggle" data-toggle="dropdown"> Groups </a>
+						<a href="?p=groups" class="dropdown-toggle" data-toggle="dropdown"> Grupos </a>
 					</li>
 					<li class="divider-vertical"></li>
 					<li class="dropdown">
-						<a href="?p=settings" class="dropdown-toggle" data-toggle="dropdown"> Settings </a>
+						<a href="?p=settings" class="dropdown-toggle" data-toggle="dropdown"> Configurações </a>
 					</li>
 
 
 				</ul>
 				<ul class="nav pull-right">
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Welcome <?php echo $_SESSION['user_logged_in']; ?> <b class="caret"></b> </a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Bem-Vindo <?php echo $_SESSION['user_logged_in']; ?> <b class="caret"></b> </a>
 						<ul class="dropdown-menu">
 							<li> <a href="?logout"> Logout </a></li>
 						</ul>

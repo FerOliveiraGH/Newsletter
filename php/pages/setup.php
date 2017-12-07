@@ -2,15 +2,12 @@
 	<h1>Tela de Configuracao Inicial</h1>
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
-/* Listing to songs.... */
-/* Loves charu's ass... shuck want it */
 error_reporting(0);
 if($_REQUEST['go']){
 	
@@ -62,19 +59,19 @@ if($res){
 	
 	<form action="?p=setup&loaddb=true" method="post">
 	
-	<h2><span>Configuration File:</span></h2>
+	<h2><span>Configuração de Arquivo:</span></h2>
 	
 	<div class="box">
 		<p>
-			Copy the below text into the "config.php" file and then make sure you <b>upload</b> this file.
+			Copie o texto abaixo dentro do arquivo "config.php" e se assegure de fazer o <b>upload</b> do arquivo.
 		</p>
 <textarea cols="60" rows="20" id="config_file">
 <?php echo $data;?>
 </textarea>
 		<p>
-			When you are done, click the button below.
+			Quanto tiver finalizado, clique no botão abaixo.
 		</p>
-		<input type="checkbox" name="load_db_auto" value="true" checked>Load Database In Automatically <br>
+		<input type="checkbox" name="load_db_auto" value="true" checked>Carregar Base de Dados Automaticamente <br>
 		
 		<input type="submit" name="fin" id="fin" value="I have finished and uploaded my new config.php file!">
 		</div>
@@ -316,7 +313,7 @@ if($_REQUEST['load_db_auto']){
 	if(!$_REQUEST['load_db_auto'] || $sqlerrors){
 	?>
 	
-	<h2><span>Load MySQL Manually:</span></h2>
+	<h2><span>Carregar MySQL Manualmente:</span></h2>
 	<textarea cols="70" rows="40" id="config_file"><?php echo $allsql;?></textarea>
 	
 	<?php
@@ -327,7 +324,7 @@ if($_REQUEST['load_db_auto']){
 	<h2><span>Configurado com Sucesso!</span></h2>
 	
 	<div class="box">
-		<p>Ocorreu tudo bem!!! O trabalho de criacao das tabelas da base de dados e do arquivo de configuracoes esta finalizado.</p>
+		<p>Ocorreu tudo bem!!! O trabalho de criação das tabelas da base de dados e do arquivo de configurações esta finalizado.</p>
 		<p>
 			<b> Obs:-</b> Caso ocorra algum erro a mensagem ira aparecer na tela.
 		</p>
@@ -353,7 +350,7 @@ if($_REQUEST['load_db_auto']){
 	
 	
 <form action="?p=setup&go=true" method="post">
-<h2><span>Permissao de Pastas:</span></h2>
+<h2><span>Permissão de Pastas:</span></h2>
 
 <div class="box">
 	<?php
@@ -374,10 +371,10 @@ if($_REQUEST['load_db_auto']){
 	?>
 </div>
 
-<h2><span>Configuracao da Base de Dados:</span></h2>
+<h2><span>Configuração da Base de Dados:</span></h2>
 
 <div class="box">
-	<p>Por favor crie uma base de dados MySQL, e depois coloque as configuracoes aqui:</p>
+	<p>Por favor crie uma base de dados MySQL, e depois coloque as configurações aqui:</p>
 	<table cellpadding="4">
 		<tr>
 			<td><label>Nome do Banco de Dados</label></td>
@@ -387,7 +384,7 @@ if($_REQUEST['load_db_auto']){
 			</div>
 		</tr>
 		<tr>
-			<td><label>Usuario da Base de Dados</label></td>
+			<td><label>Usuário da Base de Dados</label></td>
 			<td><div class="form_field"><input type="text" name="db_user" id="db_user" value="root"></div></td>
 		</tr>
 		<tr>
@@ -401,17 +398,17 @@ if($_REQUEST['load_db_auto']){
 	</table>
 </div>
 
-<h2><span>Configuracao do SMTP:</span></h2>
+<h2><span>Configuração do SMTP:</span></h2>
 
 <div class="box">
-	<p>Por favor coloque as configuracoes do servidor SMTP:</p>
+	<p>Por favor coloque as configurações do servidor SMTP:</p>
 	<table cellpadding="4">
 		<tr>
 			<td><label>Servidor SMTP</label></td>
 			<td><div class="form_field"><input type="text" name="smtp_out" id="smtp_out" value="smtp.meusite.com"></div></td>
 		</tr>
 		<tr>
-			<td><label>Usuario do SMTP</label></td>
+			<td><label>Usuário do SMTP</label></td>
 			<td><div class="form_field"><input type="text" name="smtp_user" id="smtp_user" value="nome@meusite.com"></div></td>
 		</tr>
 		<tr>
