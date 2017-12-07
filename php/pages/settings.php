@@ -1,10 +1,9 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
@@ -32,49 +31,69 @@ if($_REQUEST['save']){
 
 
 <fieldset class="two_col left_col" style="width: 30%;">
-<legend> Main Settings </legend>
+<legend> Configurações </legend>
 		<?php
 		foreach($settings as $key => $setting){
+                    switch ($key){
+                        case 'bounce_email':
+                            $key = 'Enviar Email';
+                            break;
+                        case 'default_template':
+                            $key = 'Template Padrão';
+                            break;
+                        case 'from_email':
+                            $key = 'Email de Envio';
+                            break;
+                        case 'from_name':
+                            $key = 'Nome de Envio';
+                            break;
+                        case 'password':
+                            $key = 'Senha de Acesso';
+                            break;
+                        case 'username':
+                            $key = 'Nome de Acesso';
+                            break;
+                    }
 			?>
 			<label><?php echo $key; ?></label>
 			<div class="form_field"><input type="text" name="settings[<?php echo $key; ?>]" class="input" value="<?php echo $setting;?>"></div>
 		<?php } ?>
 		<br />
-		<input type="submit" name="save" value="Save Settings" class="submit green">
+		<input type="submit" name="save" value="Salvar" class="submit green">
 </fieldset>
 </form>
 
 <fieldset class="two_col right_col">
-	<legend> Help </legend>
-		<label class="next_label">What's This ?</label>
+	<legend> Ajuda </legend>
+		<label class="next_label">O que é isso?</label>
 		<div class="single_info grid_2">
-			<label class="inline_label">Bounce Email</label>
-			<p> Where bounce emails will get sent. create a new email account for this if possible.</p>
+			<label class="inline_label">Enviar Email</label>
+			<p> Onde os e-mails de devolução serão enviados. crie uma nova conta de e-mail para isso, se possível.</p>
 		</div>
 		<div class="single_info grid_3">
-			<label class="inline_label">Default Template</label>
-			<p>Folder name of the default template to use.</p>
-		</div>
-
-		<div class="single_info grid_2">
-			<label class="inline_label">From Email </label>
-			<p>Email id to send newsletters.</p>
-		</div>
-
-		<div class="single_info grid_3">
-			<label class="inline_label">From Name </label>
-			<p>Default name to send newsletters.</p>
+			<label class="inline_label">Template Padrão</label>
+			<p>Nome da pasta do modelo padrão para usar.</p>
 		</div>
 
 		<div class="single_info grid_2">
-			<label class="inline_label">Username</label>
-			<p> Username is required to login to this system </p>
+			<label class="inline_label">Email de Envio </label>
+			<p>Email de envio de newsletters.</p>
+		</div>
+
+		<div class="single_info grid_3">
+			<label class="inline_label">Nome de Envio </label>
+			<p>Nome padrão de envio de newsletters.</p>
+		</div>
+
+		<div class="single_info grid_2">
+			<label class="inline_label">Nome de Acesso</label>
+			<p> Usuário requerido para login no sistema </p>
 		</div>
 
 
 		<div class="single_info grid_3">
-			<label class="inline_label">Password</label>
-			<p>Your password to login to this account</p>
+			<label class="inline_label">Senha de Acesso</label>
+			<p>Senha de acesso ao sistema</p>
 		</div>
 
 
@@ -87,16 +106,16 @@ $campaigns = $newsletter->get_campaigns($db);
 $form = $newsletter->get_form($db);
 ?>
 
-<h2><span>Embed Subscribe Form</span></h2>
+<h2><span>Formulario de Incrição</span></h2>
 
 <div class="box">
-<p>Copy and Paste this HTML code to embed the newsletter subscribe form.</p>
+<p>Copie e cole esse codigo HTML em seu site para obter o formulario de incrição de Newsletter.</p>
 <table cellpadding="5">
 
 <tr>
-	<td> <div class="embed_buttons"> <a href="ext.php?t=signup_form" target="_blank" class="submit orange">Subscribe Form</a></div></td>
-	<td> <div class="embed_buttons"> <a href="ext.php?t=update_form" target="_blank" class="submit orange">Update Subscription Form</a> </div></td>
-	<td> <div class="embed_buttons"> <a href="ext.php?t=unsub_form" target="_blank" class="submit orange">Unsubscribe Form</a> </div></td>
+	<td> <div class="embed_buttons"> <a href="ext.php?t=signup_form" target="_blank" class="submit orange">Formulario de Incrição</a></div></td>
+	<td> <div class="embed_buttons"> <a href="ext.php?t=update_form" target="_blank" class="submit orange">Formulario de Atualização</a> </div></td>
+	<td> <div class="embed_buttons"> <a href="ext.php?t=unsub_form" target="_blank" class="submit orange">Formulario de Desinscrever</a> </div></td>
 </tr>
 <tr>
 <td valign="top">
@@ -105,7 +124,7 @@ $form = $newsletter->get_form($db);
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Subscribe</title>
+<title>Incrição</title>
 <style type="text/css">
 body,html{
 height: 100%;
@@ -127,7 +146,7 @@ padding: 0;
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Subscribe</title>
+<title>Incrição</title>
 <style type="text/css">
 body,html{
 height: 100%;
@@ -151,7 +170,7 @@ padding: 0;
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Subscribe</title>
+<title>Incrição</title>
 <style type="text/css">
 body,html{
 height: 100%;
