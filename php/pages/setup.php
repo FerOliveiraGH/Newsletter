@@ -1,5 +1,5 @@
 <div id="setupdiv">
-	<h1>Tela de Configuracao Inicial</h1>
+	<h1>Tela de Configuração Inicial</h1>
 <?php
 /**
  * Newsletter
