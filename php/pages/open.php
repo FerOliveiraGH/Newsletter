@@ -187,7 +187,7 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 
 </div>
 
-<h2><span>Envio <?php echo (count($sends))?' newsletter out again':'';?></span></h2>
+<h2><span>Enviar <?php echo (count($sends))?' newsletter novamente':'';?></span></h2>
 
 <div class="box">
 	<table cellpadding="5">
@@ -225,7 +225,7 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 				
 			</td>
 			<td>
-				 <input type="submit" name="send" value="Enviar<?php echo (count($sends))?' again':'';?>!" class="submit green">
+				 <input type="submit" name="send" value="Enviar<?php echo (count($sends))?' Novamente':'';?>!" class="submit green">
 			</td>
 		</tr>
 	</table>
