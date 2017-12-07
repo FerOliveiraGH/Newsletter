@@ -1,23 +1,22 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
 $campaign_id = $_REQUEST['campaign_id'];
 if(!$campaign_id){
 	// basic error checking.
-	echo 'Please go back and pick a campaign';
+	echo 'Por favor volte e selecione uma campanha';
 	exit;
 }
 
 if(isset($_REQUEST['delete'])){
 	if(_DEMO_MODE){
-		echo "Sorry, cant delete campaigns in demo mode... ";
+		echo "Desculpe, não é possivel deletar campanha em demonstração... ";
 		exit;
 	}
 	$newsletter->delete_campaign($db,$campaign_id);
@@ -66,7 +65,7 @@ if(isset($_REQUEST['save']) && $_REQUEST['save']){
 			exit;
 		
 		}else{
-			$errors [] = 'Failed to create campaign in database';
+			$errors [] = 'Falha ao criar uma campanha na base de dados';
 		}
 	}
 	
@@ -83,19 +82,19 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 
 ?>
 
-<h1>Campaigns</h1>
+<h1>Campanhas</h1>
 
 <form action="?p=campaign_open&save=true" method="post" id="create_form">
 
 <input type="hidden" name="campaign_id" value="<?php echo $campaign_id;?>">
 
-<h2><span>Campaign Details:</span></h2>
+<h2><span>Destalhes da Campanha:</span></h2>
 
 <div class="box">
 	<table cellpadding="5">
 		<tr>
 			<td>
-				<label>Campaign Name</label>
+				<label>Nome da Campanha</label>
 			</td>
 			<td>
 				<div class="form_field"><input type="text" class="input" name="campaign_name" value="<?php echo $campaign_data['campaign_name'];?>"></div>
@@ -106,7 +105,7 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 				
 			</td>
 			<td>
-				<input type="submit" name="save" value="Save" class="submit green">
+				<input type="submit" name="save" value="Salvar" class="submit green">
 			</td>
 		</tr>
 	</table>
@@ -115,14 +114,14 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 
 
 
-<h2><span>Campaign Newsletters:</span></h2>
+<h2><span>Newsletters da Campanha:</span></h2>
 
 <div class="box">
 	<table cellpadding="5" class="stats">
 		<tr>
 			<th>Newsletter</th>
-			<th>Send When</th>
-			<th>Action</th>
+			<th>Enviado em</th>
+			<th>Ação</th>
 		</tr>
 		<?php
 		$campaign_newsletters = array();
@@ -136,8 +135,8 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 				<td><?php echo $newsletter_row['subject'];?></td>
 				<td><?php echo floor($newsletter_row['send_time']/86400);?> days after join</td>
 				<td>
-					<a href="?p=open&newsletter_id=<?php echo $newsletter_row['newsletter_id'];?>">Edit Newsletter</a>
-					<a href="?p=campaign_open&campaign_id=<?php echo $campaign_id;?>&remove_newsletter_id=<?php echo $newsletter_row['newsletter_id'];?>" onclick="return confirm('Really remove from campaign?');" style="color:#FF0000;">Remove From Campaign</a>
+					<a href="?p=open&newsletter_id=<?php echo $newsletter_row['newsletter_id'];?>">Editar Newsletter</a>
+					<a href="?p=campaign_open&campaign_id=<?php echo $campaign_id;?>&remove_newsletter_id=<?php echo $newsletter_row['newsletter_id'];?>" onclick="return confirm('Really remove from campaign?');" style="color:#FF0000;">Remover da Campanha</a>
 				</td>
 			</tr>
 			<?php
@@ -147,15 +146,15 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 	
 </div>
 
-<h2><span>Add Newsletter to Campaign:</span></h2>
+<h2><span>Adicionar Newsletter a Campanha:</span></h2>
 
 <div class="box">
 	<table cellpadding="5">
 		<tr>
-			<td>Choose Newsletter</td>
+			<td>Escolha o Newsletter</td>
 			<td>
 				<div class="form_field"><select name="add_newsletter_id">
-					<option value="">Select a newsletter</option>
+					<option value="">Selecione um newsletter</option>
 					<?php 
 					$newsletters = $newsletter->get_newsletters($db);
 					foreach($newsletters as $newsletter){
@@ -170,15 +169,15 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 			</td>
 		</tr>
 		<tr>
-			<td>Send Newsletter</td>
+			<td>Enviar Newsletter</td>
 			<td>
-				<div class="form_field"><input type="text" name="add_send_time" size="3" value="10"></div> days after member joins campaign
+				<div class="form_field"><input type="text" name="add_send_time" size="3" value="10"></div> dias após o membro se juntar à campanha
 			</td>
 		</tr>
 		<tr>
 			<td></td>
 			<td>
-				<input type="submit" name="add" value="Add Newsletter" class="submit green">
+				<input type="submit" name="add" value="Adicionar Newsletter" class="submit green">
 			</td>
 		</tr>
 	</table>
@@ -188,19 +187,19 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 
 
 
-<h2><span>Campaign Customer Status:</span></h2>
+<h2><span>Status do Cliente na Campanha:</span></h2>
 
-<p>Current server time: <?php echo date("d M Y h:i:sa");?> </p>
+<p>Hora do servidor: <?php echo date("d/m/Y H:i:s");?> </p>
 
 <div class="box">
 	<table cellpadding="5" class="stats">
 		<tr>
-			<th>Member Name</th>
+			<th>Nome do Membro</th>
 			<th>Email</th>
-			<th>Joined Campaign</th>
-			<th>Progress</th>
-			<th>Next Newsletter</th>
-			<th>Action</th>
+			<th>Incrito na Campanha</th>
+			<th>Progresso</th>
+			<th>Próximo Newsletter</th>
+			<th>Ação</th>
 		</tr>
 		<?php
 		while($member = mysql_fetch_assoc($campaign_data['members_rs'])){
@@ -250,8 +249,8 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 					?>
 				</td>
 				<td>
-					<a href="?p=members&edit_member_id=<?php echo $member['member_id'];?>" class="submit gray">Edit Member</a>
-					<a href="?p=campaign_open&delete_member_id=<?php echo $member['member_id'];?>" onclick="if(confirm('Really remove member from campaign?'))return true;else return false;" class="submit gray">Remove from Campaign</a>
+					<a href="?p=members&edit_member_id=<?php echo $member['member_id'];?>" class="submit gray">Editar Membro</a>
+					<a href="?p=campaign_open&delete_member_id=<?php echo $member['member_id'];?>" onclick="if(confirm('Really remove member from campaign?'))return true;else return false;" class="submit gray">Remover da Campanha</a>
 				</td>
 			</tr>
 			<?php
@@ -263,10 +262,10 @@ $campaign_data = $newsletter->get_campaign($db,$campaign_id);
 
 
 
-<h2><span>Other actions</span></h2>
+<h2><span>Outras ações</span></h2>
 	
 <div class="box">
-	<a href="#" onclick="if(confirm('Really delete this campaign and all campaign history? Cannot undo!')){ window.location.href='?p=campaign_open&campaign_id=<?php echo $campaign_id;?>&delete=true'; } return false;" class="submit orange">Delete Campaign</a>
+	<a href="#" onclick="if(confirm('Deseja mesmo deletar essa campanha e todo o seu histórico? não pode ser desfeito!')){ window.location.href='?p=campaign_open&campaign_id=<?php echo $campaign_id;?>&delete=true'; } return false;" class="submit orange">Deletar Campanha</a>
 </div>
 
 
