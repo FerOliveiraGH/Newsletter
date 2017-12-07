@@ -1,10 +1,9 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
@@ -61,10 +60,10 @@ if($_REQUEST['export']){
 
 ?>
 
-<h1>Members/Subscribers</h1>
+<h1>Membros/Inscrítos</h1>
 
 <p>
-Here you can manage all your members/subscribers.
+Aqui você pode gerenciar todos os membros/Inscrítos.
 </p>
 
 
@@ -78,25 +77,25 @@ if($_REQUEST['edit_member_id']){
 	<form action="" method="post" id="create_form">
 	<input type="hidden" name="save" value="true">
 	<input type="hidden" name="member_id" value="<?php echo $member_id;?>">
-	<h2><span>Edit Member</span></h2>
+	<h2><span>Editar Membros</span></h2>
 	
 	<div class="box">
 		<?php include("members_form.php"); ?>
 	</div>
 	
 	</form>
-	<h2><span>Recent Member Activity</span></h2>
+	<h2><span>Recentes Membros Ativados</span></h2>
 	
 	<div class="box">
 	
 	<table cellpadding="5" class="stats">
 		<tr>
-			<th>Send Date</th>
-			<th>Email Subject</th>
-			<th>Sent From</th>
-			<th>Opened</th>
-			<th>Bounced</th>
-			<th>Actions</th>
+			<th>Data do Envio</th>
+			<th>Assunto do Email</th>
+			<th>Enviado de</th>
+			<th>Abertos</th>
+			<th>Pulados</th>
+			<th>Ação</th>
 		</tr>
 		<?php 
 		foreach($member_data['sent'] as $send){
@@ -120,7 +119,7 @@ if($_REQUEST['edit_member_id']){
 					<?php echo ($send['bounce_time']>0)?'YES: '.date('Y-m-d H:i:s',$send['bounce_time']):'NO';?>
 				</td>
 				<td>
-					<a href="?p=open&newsletter_id=<?php echo $n['newsletter_id'];?>">Open Newsletter</a> |
+					<a href="?p=open&newsletter_id=<?php echo $n['newsletter_id'];?>">Abrir Newsletter</a> |
 					<a href="?p=stats&newsletter_id=<?php echo $n['newsletter_id'];?>&send_id=<?php echo $send['send_id'];?>">View Full Stats</a>
 				</td>
 			</tr>
@@ -168,7 +167,7 @@ if($_REQUEST['edit_member_id']){
 	<form action="?p=members&search=true" method="post" id="search_form">
 
 
-<h2><span>Search Members</span></h2>
+<h2><span>Procurar Membros</span></h2>
 
 
 
@@ -183,13 +182,13 @@ if($_REQUEST['edit_member_id']){
 				<div class="form_field"><input type="text" name="search_fields[email]" id="email" value="<?php echo htmlspecialchars($search['email']);?>" size="12"></div>
 			</td>
 			<td valign="middle">
-				<label>Name</label>
+				<label>Nome</label>
 			</td>
 			<td valign="middle">
 				<div class="form_field"><input type="text" name="search_fields[name]" id="namesearch" value="<?php echo htmlspecialchars($search['name']);?>" size="12"></div>
 			</td>
 			<td valign="middle">
-				<label>Groups</label>
+				<label>Grupo</label>
 			</td>
 			<td valign="middle">
 				<?php
@@ -198,14 +197,14 @@ if($_REQUEST['edit_member_id']){
 				<?php } ?>
 			</td>
 			<td valign="middle">
-				 <input type="submit" name="search" value="Search!" class="submit gray">
+				 <input type="submit" name="search" value="Procurar!" class="submit gray">
 			</td>
 		</tr>
 	</table>
 	
 </div>
 
-<h2><span>Member List (<?php echo mysql_num_rows($all_members);?>)</span></h2>
+<h2><span>Lista de Membros (<?php echo mysql_num_rows($all_members);?>)</span></h2>
 <div class="box">
 	<table cellpadding="5" class="stats">
 		<thead>
@@ -237,23 +236,23 @@ if($_REQUEST['edit_member_id']){
 				</td>
 			</tr>
 			<tr>
-				<th>Email Address</th>
-				<th>First Name</th>
-				<th>Last Name</th>
+				<th>Endereço de Email</th>
+				<th>Nome</th>
+				<th>Sobrenome</th>
 				<?php
 				foreach($member_fields as $member_field){
 				?> <th><?php echo $member_field['field_name'];?></th> 
 				<?php
 				}
 				?>
-				<th>Join Date</th>
-				<th>Number Sent</th>
-				<th>Number Opened</th>
-				<th>Bounces</th>
-				<th>Newsletter Groups</th>
-				<th>Campaigns</th>
-				<th>Sync</th>
-				<th>Action</th>
+				<th>Data Incrição</th>
+				<th>Número de Envios</th>
+				<th>Número de Abertos</th>
+				<th>Pulados</th>
+				<th>Grupo Newsletter</th>
+				<th>Campanha</th>
+				<th>Sincronizar</th>
+				<th>Ação</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -272,7 +271,7 @@ if($_REQUEST['edit_member_id']){
 			foreach($member_fields as $member_field){
 				echo ',"'.$member_field['field_name'].'"';
 			}
-			echo  ',"Join Date","Number Sent","Number Opened","Bounces",';
+			echo  ',"Data Insrição","Número Envios","Número Abertos","Pulados",';
 			foreach($groups as $group){ 
 				echo '"'.$group['group_name'] . '",';
 			}
@@ -295,7 +294,7 @@ if($_REQUEST['edit_member_id']){
 						}else{
 						}
 					}
-					echo ($has)?'YES':'NO';
+					echo ($has)?'SIM':'NÃO';
 					echo ',';
 				}
 				// TODO - export campaiangs. eg: foreach($campaigns....
@@ -307,7 +306,7 @@ if($_REQUEST['edit_member_id']){
 			?>
 			<tr>
 				<td colspan="<?php echo 10+count($member_fields);?>" style="text-align:center;">
-					<div class="newsletter_error">No results found <b> you can <a href="?p=members_add">add some</a> if you want.</b></div>
+					<div class="newsletter_error">Nenhum resultado encontrado <b>você pode <a href="?p=members_add">adicionar alguns detalhes</a> se quiser.</b></div>
 				</td>
 			</tr>
 			<?php
@@ -391,8 +390,8 @@ if($_REQUEST['edit_member_id']){
 					?>
 				</td>
 				<td>
-					<a href="?p=members&edit_member_id=<?php echo $member['member_id'];?>">Edit Member</a> | 
-					<a href="?p=members&delete_member_id=<?php echo $member['member_id'];?>" onclick="if(confirm('Really delete this member?'))return true;else return false;" style="color:#FF0000;">Delete</a>
+					<a href="?p=members&edit_member_id=<?php echo $member['member_id'];?>">Editar Membro</a> | 
+					<a href="?p=members&delete_member_id=<?php echo $member['member_id'];?>" onclick="if(confirm('Deseja mesmo deletar esse membro?'))return true;else return false;" style="color:#FF0000;">Deletar</a>
 				</td>
 			</tr>
 		<?php } ?>
@@ -453,7 +452,7 @@ if($_REQUEST['edit_member_id']){
 	
 	<br/>
 	
-	<input type="submit" name="download_as_csv" value="Export Above Members to CSV" class="submit orange">	<a href="?p=members&export=true" class="submit orange">Export all members to CSV</a>
+	<input type="submit" name="download_as_csv" value="Exportar Membros Acima para CSV" class="submit orange">	<a href="?p=members&export=true" class="submit orange">Exportar todos os mebros para CSV</a>
 
 	
 </div>
