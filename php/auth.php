@@ -1,10 +1,9 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 if(isset($_REQUEST['logout'])){
@@ -26,7 +25,7 @@ if($login_status){
 	$_SESSION['user_logged_in'] = $_REQUEST['username'];
 }
 else{
-	$error = '<div class="newsletter_error"> Invalid Credentials </div>';
+	$error = '<div class="newsletter_error"> Senha ou Usuário Inválido </div>';
 }
 
 if(!$login_status){
@@ -44,12 +43,12 @@ if(!$login_status){
 	<fieldset class="two_col left_col" style="width: 30%;">
 		<legend> Newsletter Dashboard </legend>
 		<form action="" method="post">
-			<label>Username</label>
+			<label>Usuário</label>
 			<div class="form_field">
 				<input type="text" name="username" value="<?php echo (_DEMO_MODE)?$newsletter->settings['username']:'';?>">
 			</div>
 			
-			<label>Password</label>
+			<label>Senha</label>
 			<div class="form_field">
 				<input type="password" name="password" value="<?php echo (_DEMO_MODE)?$newsletter->settings['password']:'';?>">
 			</div>
@@ -59,25 +58,25 @@ if(!$login_status){
 	</fieldset><!-- end two_col -->
 	
 	<fieldset class="two_col right_col">
-		<legend> Tips </legend>
-		<label class="next_label">What's Next ?</label>
+		<legend> Dicas </legend>
+		<label class="next_label">O que posso fazer?</label>
 		<div class="single_info grid_2">
-			<label class="inline_label">Create Newsletter</label>
-			<p> Once you are done, you can create unlimited newsletters. </p>
+			<label class="inline_label">Criar Newsletter</label>
+			<p> Depois de terminar, você pode criar boletins ilimitados. </p>
 		</div>
 		<div class="single_info grid_3">
-			<label class="inline_label">Design Templates</label>
-			<p>Don't stick to one layout, make different templates as many as you can</p>
+			<label class="inline_label">Design de Templates</label>
+			<p>Não fique com um layout, faça modelos diferentes o máximo que puder</p>
 		</div>
 
 		<div class="single_info grid_2">
-			<label class="inline_label">Create Mailing List</label>
-			<p>Create mailing list for your clients</p>
+			<label class="inline_label">Criar Lista de Emails</label>
+			<p>Crie uma lista de seus clientes</p>
 		</div>
 
 		<div class="single_info grid_3">
-			<label class="inline_label">Become Smart User</label>
-			<p>Subscribe to get these awesome scripts <a href="http://www.thetutlage.com/subscribe"> Do it now ?</a></p>
+			<label class="inline_label">Gerenciar Campanhas</label>
+			<p>Crie quantas campanhas quiser</a></p>
 		</div>
 	</fieldset>
 
