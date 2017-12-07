@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `group` (
   PRIMARY KEY  (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `group` VALUES (1, 'Default Newsletter', 1);
+INSERT IGNORE INTO `group` VALUES (1, 'Default Newsletter', 1);
 
 
 CREATE TABLE IF NOT EXISTS `image` (
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `member_group` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `newsletter` (
+CREATE TABLE IF NOT EXISTS `newsletter` (
   `newsletter_id` int(11) NOT NULL auto_increment,
   `create_date` date NOT NULL,
   `template` varchar(100) collate utf8_bin NOT NULL,
@@ -281,12 +281,12 @@ CREATE TABLE IF NOT EXISTS `sync_member` (
   KEY `member_id` (`member_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `settings` VALUES ('bounce_email', 'you@email.com');
-INSERT INTO `settings` VALUES ('default_template', 'Plain Newsletter');
-INSERT INTO `settings` VALUES ('from_email', 'you@email.com');
-INSERT INTO `settings` VALUES ('from_name', 'Your Company Name');
-INSERT INTO `settings` VALUES ('password', 'admin');
-INSERT INTO `settings` VALUES ('username', 'admin');
+INSERT IGNORE INTO `settings` VALUES ('bounce_email', 'seu@email.com');
+INSERT IGNORE INTO `settings` VALUES ('default_template', 'Plain Newsletter');
+INSERT IGNORE INTO `settings` VALUES ('from_email', 'seu@email.com');
+INSERT IGNORE INTO `settings` VALUES ('from_name', 'Sua Campanha');
+INSERT IGNORE INTO `settings` VALUES ('password', 'admin');
+INSERT IGNORE INTO `settings` VALUES ('username', 'admin');
         
 <?php
 
