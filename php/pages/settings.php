@@ -25,13 +25,13 @@ if($_REQUEST['save']){
 }
 ?>
 
-<h1>&nbsp;</h1>
+<h1>Configurações</h1>
 
 <form action="?p=settings&save=true" method="post" id="create_form">
 
 
 <fieldset class="two_col left_col" style="width: 30%;">
-<legend> Configurações </legend>
+<legend> Configurações Gerais </legend>
 		<?php
 		foreach($settings as $key => $setting){
                     switch ($key){
