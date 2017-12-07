@@ -65,8 +65,10 @@ if(isset($_REQUEST['save']) && $_REQUEST['save']){
 				}
 				
 				if(!$errors){
-					
-					$send_id = $newsletter->create_send($db,$newsletter_id,$send_groups,$dont_sent_duplicates,$_REQUEST['send_later']);
+					if($_REQUEST['send_later']){
+                                            $dateTime = date('d/m/Y', strtotime($_REQUEST['send_later']));
+                                        }
+					$send_id = $newsletter->create_send($db,$newsletter_id,$send_groups,$dont_sent_duplicates,$dateTime);
 					
 					if(!$send_id){
 						$errors[] = "No members found to send to";
@@ -215,7 +217,7 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 				<label>Agendar envio para uma data posterior </label>
 			</td>
 			<td>
-				<div class="form_field"><input type="text" name="send_later" value="" size="10"></div> (formato da data: YYYY-MM-DD)
+				<div class="form_field"><input type="text" name="send_later" value="" size="10"></div> (formato da data: 01/01/2017)
 			</td>
 		</tr>
 		<tr>

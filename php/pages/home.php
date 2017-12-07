@@ -33,7 +33,7 @@ $page_title = "Dashboard";
 			?>
 		<tr>
 			<td>
-				<?php echo date("Y-m-d H:i:s",$send['start_time']);?>
+				<?php echo date("d/m/Y H:i:s",$send['start_time']);?>
 			</td>
 			<td>
 				<?php echo $n['subject'];?>
