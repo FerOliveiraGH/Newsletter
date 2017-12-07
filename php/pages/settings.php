@@ -36,26 +36,29 @@ if($_REQUEST['save']){
 		foreach($settings as $key => $setting){
                     switch ($key){
                         case 'bounce_email':
-                            $key = 'Enviar Email';
+                            $key_name = 'Enviar Email';
                             break;
                         case 'default_template':
-                            $key = 'Template Padrão';
+                            $key_name = 'Template Padrão';
                             break;
                         case 'from_email':
-                            $key = 'Email de Envio';
+                            $key_name = 'Email de Envio';
                             break;
                         case 'from_name':
-                            $key = 'Nome de Envio';
+                            $key_name = 'Nome de Envio';
                             break;
                         case 'password':
-                            $key = 'Senha de Acesso';
+                            $key_name = 'Senha de Acesso';
                             break;
                         case 'username':
-                            $key = 'Nome de Acesso';
+                            $key_name = 'Nome de Acesso';
+                            break;
+                        default :
+                            $key_name = $key;
                             break;
                     }
 			?>
-			<label><?php echo $key; ?></label>
+			<label><?php echo $key_name; ?></label>
 			<div class="form_field"><input type="text" name="settings[<?php echo $key; ?>]" class="input" value="<?php echo $setting;?>"></div>
 		<?php } ?>
 		<br />
