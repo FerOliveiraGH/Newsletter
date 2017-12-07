@@ -118,7 +118,7 @@ $form = $newsletter->get_form($db);
 <tr>
 	<td> <div class="embed_buttons"> <a href="ext.php?t=signup_form" target="_blank" class="submit orange">Formulario de Incrição</a></div></td>
 	<td> <div class="embed_buttons"> <a href="ext.php?t=update_form" target="_blank" class="submit orange">Formulario de Atualização</a> </div></td>
-	<td> <div class="embed_buttons"> <a href="ext.php?t=unsub_form" target="_blank" class="submit orange">Formulario de Desinscrever</a> </div></td>
+	<td> <div class="embed_buttons"> <a href="ext.php?t=unsub_form" target="_blank" class="submit orange">Formulario de Desinscrição</a> </div></td>
 </tr>
 <tr>
 <td valign="top">
