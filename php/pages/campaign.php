@@ -1,30 +1,29 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 ?>
 
-<h1>Newsletter Campaigns</h1>
+<h1>Newsletter Campanhas</h1>
 
 
-<h2 style="float: left;"><span>List of All Campaigns</span></h2>
+<h2 style="float: left;"><span>Lista de Todas as Campanhas</span></h2>
 
 
-<a href="?p=campaign_open&campaign_id=new" class="submit orange right_float">Create new Campaign</a>
+<a href="?p=campaign_open&campaign_id=new" class="submit orange right_float">Criar um nova Campanha</a>
 
 
 <div class="box">
 	<table cellpadding="5" class="stats">
 		<tr>
-			<th>Campaign Name</th>
-			<th>Number of Members</th>
-			<th>Number of Newsletters</th>
-			<th>Action</th>
+			<th>Nome da Campanha</th>
+			<th>Número de Membros</th>
+			<th>Número de Newsletters</th>
+			<th>Ação</th>
 		</tr>
 		<?php
 		$campaigns = $newsletter->get_campaigns($db);
