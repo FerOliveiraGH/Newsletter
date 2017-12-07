@@ -41,7 +41,7 @@
 				<?php echo mysql_num_rows($n['newsletter_rs']); ?>
 			</td>
 			<td>
-				<a href="?p=campaign_open&campaign_id=<?php echo $n['campaign_id'];?>" class="submit gray">Open</a>
+				<a href="?p=campaign_open&campaign_id=<?php echo $n['campaign_id'];?>" class="submit gray">Abrir</a>
 			</td>
 		</tr>
 		<?php } ?>
