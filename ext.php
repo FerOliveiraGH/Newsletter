@@ -385,7 +385,7 @@ switch($_REQUEST['t']){
 		}
 		if($member_id){
 			$newsletter->unsubscribe($db,$member_id);
-			$message = 'Unsubscribe successful';
+			$message = 'Desinscrito com Sucesso';
 		}
 		include("layout/unsub_form.php");
 		exit;
