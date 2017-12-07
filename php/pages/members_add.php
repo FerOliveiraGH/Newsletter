@@ -86,6 +86,7 @@ if(isset($_REQUEST['import'])){
 				"email"=>trim($data[0]),
 				"group_id"=>$this_group_ids,
 				"custom" => $custom,
+				 "unsubscribe_date" => "0000-00-00",
 			);
 			$member_id = $newsletter->save_member($db,"new",$fields);
 			if($member_id){
