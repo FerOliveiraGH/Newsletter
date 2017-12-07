@@ -1,10 +1,9 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
@@ -22,7 +21,7 @@ $page_title = "Dashboard";
 			<th>Aberto por</th>
 			<th>Desinscritos</th>
 			<th>Pulados</th>
-			<th>Acao</th>
+			<th>Ação</th>
 		</tr>
 		<?php
 		$past_sends = $newsletter->get_past_sends($db);
@@ -74,12 +73,12 @@ $page_title = "Dashboard";
 			<th>Nome</th>
 			<th>Sobrenome</th>
 			<th>Data Cadastro</th>
-			<th>Numero Envios</th>
-			<th>Numero Abertos</th>
-			<th>Numero Pulados</th>
+			<th>Número Envios</th>
+			<th>Número Abertos</th>
+			<th>Número Pulados</th>
 			<th>Grupo</th>
 			<th>Campanha</th>
-			<th>Acao</th>
+			<th>Ação</th>
 		</tr>
 		<?php
 		$groups = $newsletter->get_groups($db);
@@ -158,7 +157,7 @@ $page_title = "Dashboard";
 			<th>Newsletter</th>
 			<th>Enviando</th>
 			<th>Progresso</th>
-			<th>Acao</th>
+			<th>Ação</th>
 		</tr>
 		<?php
 		$sends = $newsletter->get_pending_sends($db);
