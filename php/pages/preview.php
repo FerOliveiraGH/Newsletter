@@ -1,10 +1,9 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
