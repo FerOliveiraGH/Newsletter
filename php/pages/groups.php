@@ -78,6 +78,7 @@ if($_REQUEST['edit_group_id']){
 	
 	<div class="box">
 		<input type="button" name="del" value="Deletar esse grupo" onclick="if(confirm('Deseja mesmo remover esse grupo?')){ window.location.href='?p=groups&delete=<?php echo $group_id;?>'; }" class="submit orange">
+                <input type="button" name="back" value="Voltar" onclick="window.history.go(-1)" class="submit gray">
 	</div>
 
 <?php
