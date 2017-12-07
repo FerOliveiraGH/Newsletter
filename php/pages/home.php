@@ -101,10 +101,10 @@ $page_title = "Dashboard";
 					<?php $date = explode('-',$member['join_date']);echo $date[2].'/'.$date[1].'/'.$date[0];?>
 				</td>
 				<td>
-					<?php echo count($member['sent']);?> newsletters
+					<?php echo count($member['sent']);?> newsletter(s)
 				</td>
 				<td>
-					<?php echo count($member['opened']);?> newsletters
+					<?php echo count($member['opened']);?> newsletter(s)
 				</td>
 				<td>
 					<?php echo count($member['bounces']);?> vez(es)
