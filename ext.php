@@ -56,19 +56,20 @@ switch($_REQUEST['t']){
 				"group_id"=>$groups,
 				"custom"=>$custom,
 				"campaign_id"=>$campaigns,
+                                "unsubscribe_date"=>"0000-00-00",
 			);
 			// todo - better error checking maybe?
 			// custom error page?
 			$existing_custom_fields = $newsletter->get_member_fields($db);
 			foreach($existing_custom_fields as $key=>$val){
 				if($val['required'] && !$custom[$val['field_name']]){
-					$message = "Complete all required fields. <br /> Go <a href='javascript:history.go(-1);'>back</a> ";
+					$message = "Preencha todos os campos.<br /> <a href='javascript:history.go(-1);'>Voltar</a> ";
 					break;
 				}
 			}
 			if($message)break;
 			if(!$fields['first_name'] || !$fields['email']){
-					$message = "Complete all required fields. <br /> Go <a href='javascript:history.go(-1);'>back</a> ";
+					$message = "Preencha todos os campos.<br /> <a href='javascript:history.go(-1);'>Voltar</a> ";
 				break;
 			}
 			$member_id = $newsletter->save_member($db,'new',$fields,true);
@@ -130,7 +131,7 @@ switch($_REQUEST['t']){
 					ob_end_clean();
 					header("Location: ".$newsletter->settings['subscribe_redirect']);
 				}else{
-					$message .= " <img src='layout/images/send_success.jpg' id='success_image'/> <br />Subscription successful.";
+					$message .= " <img src='layout/images/send_success.jpg' id='success_image'/> <br />Inscrito com sucesso.";
 				}
 			}
 		}
@@ -165,7 +166,7 @@ switch($_REQUEST['t']){
 			}else{
 				$email = '';
 				$message = '<p>Desculpe, não conseguimos encontrar seu endereço de e-mail em nosso banco de dados. Verifique seu endereço de e-mail e tente novamente.
-					<br /> <a href="javascript:history.go(-1);" id="green"> Hide </a>
+					<br /> <a href="javascript:history.go(-1);" id="green"> Esconder </a>
 				</p>';
 			}
 		}
