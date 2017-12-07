@@ -45,7 +45,7 @@
 					$send = $newsletter->get_send($db,$send['send_id']);
 					?>
 					
-					<?php echo count($send['sent_members']);?> membros de <?php echo date("Y-m-d",$send['start_time']);?> <br>
+					<?php echo count($send['sent_members']);?> membro(s) de <?php echo date("Y-m-d",$send['start_time']);?> <br>
 					
 				<?php } ?>
 			</td>
@@ -55,7 +55,7 @@
 					$send = $newsletter->get_send($db,$send['send_id']);
 					?>
 					
-					<?php echo count($send['opened_members']);?> membros <br>
+					<?php echo count($send['opened_members']);?> membro(s) <br>
 					
 				<?php } ?>
 			</td>
@@ -65,7 +65,7 @@
 					$send = $newsletter->get_send($db,$send['send_id']);
 					?>
 					
-					<?php echo count($send['unsub_members']);?> membros <br>
+					<?php echo count($send['unsub_members']);?> membro(s) <br>
 					
 				<?php } ?>
 			</td>
@@ -75,7 +75,7 @@
 					$send = $newsletter->get_send($db,$send['send_id']);
 					?>
 					
-					<?php echo count($send['bounce_members']);?> membros <br>
+					<?php echo count($send['bounce_members']);?> membro(s) <br>
 					
 				<?php } ?>
 			</td>
