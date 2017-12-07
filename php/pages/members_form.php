@@ -40,7 +40,10 @@ $member_fields = $newsletter->get_member_fields($db);
 				<div class="form_field"><input type="text" name="mem_last_name" id="last_name" value="<?php echo $member_data['last_name'];?>"></div>
 			</td>
 		</tr>
-                <tr><td><b>Campos Personalizados:</b></td></tr>
+                <tr>
+                    <td><label>Campos Personalizados:</label></td>
+                    <td>(Obs: Somente se extremo necessário)</td>
+                </tr>
 		<tr>
 			<td>
 				Nome do Campo:
