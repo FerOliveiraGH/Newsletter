@@ -339,7 +339,7 @@ if($_REQUEST['edit_member_id']){
 				}
 				?> 
 				<td>
-					<?php echo $member['join_date'];?>
+					<?php echo date('d/m/Y', strtotime($member['join_date']));?>
 				</td>
 				<td>
 					<?php echo count($member['sent']);?> newsletters
