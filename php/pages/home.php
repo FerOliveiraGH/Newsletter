@@ -98,7 +98,7 @@ $page_title = "Dashboard";
 					<?php echo _shl($member['last_name'],$search['name']);?>
 				</td>
 				<td>
-					<?php $date = explode('-',$member['join_date']);echo $date[2].'/'.$date[1].'/'.$date[0];?>
+					<?php echo date('d/m/Y', strtotime($member['join_date']));?>
 				</td>
 				<td>
 					<?php echo count($member['sent']);?> newsletter(s)
