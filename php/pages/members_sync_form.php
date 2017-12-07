@@ -15,12 +15,12 @@ if($sync_id!='new' && $sync_id){
 $groups = $newsletter->get_groups($db);
 ?>
 
-<h2>Sync Settings:</h2>
+<h2>Configurações:</h2>
 <form action="?p=members_sync&save=true" method="post" id="create_form" enctype="multipart/form-data">
 <input type="hidden" name="sync_id" value="<?php echo $sync_id;?>">
 
 <div class="box">
-	<p>Nome da sincronização (obs: Carrinho de Membros)</p>
+    <h4>Nome da sincronização (obs: Carrinho de Membros)</h4>
 	<table cellpadding="4">
 		<tr>
 			<td>Nome:</td>
@@ -29,7 +29,7 @@ $groups = $newsletter->get_groups($db);
 	</table>
 	
 	
-	<p>Digite os detalhes da conexão do MySQL para o banco de dados com o qual você deseja sincronizar:</p>
+	<h4>Digite os detalhes da conexão do MySQL para o banco de dados com o qual você deseja sincronizar:</h4>
 	<table cellpadding="4">
 		<tr>
 			<td>Nome da Base de Dados:</td>
@@ -49,7 +49,7 @@ $groups = $newsletter->get_groups($db);
 		</tr>
 	</table>
 	
-	<p>Digite as informações da tabela de banco de dados com a qual deseja sincronizar:</p>
+	<h4>Digite as informações da tabela de banco de dados com a qual deseja sincronizar:</h4>
 	<table cellpadding="4">
 		<tr>
 			<td>Nome da Tabela:</td>
@@ -73,7 +73,7 @@ $groups = $newsletter->get_groups($db);
 		</tr>
 	</table>
 	
-	<p>Todos os membros dessa sincronização devem ser adicionados a esses grupos locais:</p>
+        <h4>Todos os membros dessa sincronização devem ser adicionados a esses grupos locais:</h4>
 	<table cellpadding="4">
 		<tr>
 			<td>Grupos:</td>
@@ -86,14 +86,14 @@ $groups = $newsletter->get_groups($db);
 		</tr>
 	</table>
 	
-	<p>Avançado</p>
+	<h4>Avançado</h4>
 	<table cellpadding="4">
 		<tr>
 			<td>Redirecione para esse URL ao tentar editar os detalhes desses membros. {USER_ID} Campo Dinamico:</td>
 			<td><input type="text" name="edit_url" id="edit_url" value="<?php echo $sync['edit_url'];?>"></td>
 		</tr>
 	</table>
-	
+        <h4>Importar</h4>
 	<p>Uma vez que você esteja feliz com esses detalhes, clique em salvar abaixo e vamos testar a conexão.</p>
 	<table cellpadding="4">
 		<tr>
