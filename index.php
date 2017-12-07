@@ -52,7 +52,7 @@ if(defined("_DB_NAME") && $show_menu){ ?>
 			<div class="navbar-inner">
 				<div class="container">
 				<ul class="nav">
-                                    <span class="site_icon"><img src="images/tutlage_icons.png" alt="tutlage_icons" width="100%" /></span>
+                                    <span class="site_icon"><img src="images/logo.png" alt="logo" width="100%" /></span>
 					<span class="spacer">&nbsp;</span>
 					<li><a href="?p=home"> Dashboard </a></li>
 						<li class="divider-vertical"></li>
