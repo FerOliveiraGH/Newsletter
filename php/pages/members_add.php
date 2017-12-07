@@ -131,12 +131,12 @@ if($_REQUEST['save'] && $_REQUEST['member_id'] && $_REQUEST['mem_email']){
 
 ?>
 
-<h1>Add New Member/Subscriber</h1>
+<h1>Adicionar Novo Membro/Incrítos</h1>
 
 <form action="" method="post" id="create_form">
 <input type="hidden" name="member_id" value="new">
 <input type="hidden" name="save" value="true">
-<h2><span>Add New Member</span></h2>
+<h2><span>Adicionar Membro</span></h2>
 
 <div class="box">
 	<?php include("members_form.php"); ?>
@@ -147,23 +147,23 @@ if($_REQUEST['save'] && $_REQUEST['member_id'] && $_REQUEST['mem_email']){
 
 <form action="?p=members_add&import=true" method="post" id="create_form" enctype="multipart/form-data">
 
-<h2><span>Import Members from CSV</span></h2>
+<h2><span>Importar Membros de CSV</span></h2>
 <div class="box">
 	<p>
-		<a href="?p=members_add&csvsample" class="submit gray right_float">Download Sample</a>
+		<a href="?p=members_add&csvsample" class="submit gray right_float">Download Simples</a>
 	</p>
 	<p>
-		Please make sure your file is in the same format as provided above.<br> There is no error checking in csv import.
+		Certifique-se de que seu arquivo esteja no mesmo formato fornecido acima.<br> Não há verificação de erros na importação csv.
 	</p>
 	<table cellpadding="4">
 		<tr>
-			<td><label>Choose Your CSV File</td><label>
+			<td><label>Escolha Seu Arquivo CSV</td><label>
 			<td>
 				<input type="file" name="upload">
 			</td>
 		</tr>
 		<tr>
-			<td>Import members into these groups</td>
+			<td>Importar membros para esses grupos</td>
 			<td>
 				<?php
 				
@@ -175,7 +175,7 @@ if($_REQUEST['save'] && $_REQUEST['member_id'] && $_REQUEST['mem_email']){
 		<tr>
 			<td></td>
 			<td>
-				<input type="submit" name="upload_file" value="Upload CSV File" class="submit green">
+				<input type="submit" name="upload_file" value="Importar Arquivo CSV" class="submit green">
 			</td>
 		</tr>
 	</table>

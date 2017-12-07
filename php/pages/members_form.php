@@ -19,7 +19,7 @@ $member_fields = $newsletter->get_member_fields($db);
 <table cellpadding="5">
 		<tr>
 			<td width="200px;">
-				<label>Email Address</label>
+				<label>Email</label>
 			</td>
 			<td width="300px;">
 				<div class="form_field"><input type="text" name="mem_email" id="email" value="<?php echo $member_data['email'];?>"></div>
@@ -27,7 +27,7 @@ $member_fields = $newsletter->get_member_fields($db);
 		</tr>
 		<tr>
 			<td>
-				<label>First Name</label>
+				<label>Nome</label>
 			</td>
 			<td>
 				<div class="form_field"><input type="text" name="mem_first_name" id="first_name" value="<?php echo $member_data['first_name'];?>"></div>
@@ -35,27 +35,28 @@ $member_fields = $newsletter->get_member_fields($db);
 		</tr>
 		<tr>
 			<td>
-				<label>Last Name</label>
+				<label>Sobrenome</label>
 			</td>
 			<td>
 				<div class="form_field"><input type="text" name="mem_last_name" id="last_name" value="<?php echo $member_data['last_name'];?>"></div>
 			</td>
 		</tr>
-		<!--<tr>
+                <tr><td><b>Campos Personalizados:</b></td></tr>
+		<tr>
 			<td>
-				Custom Field:
+				Nome do Campo:
 			</td>
 			<td>
-				Custom Value:
+				Valor do Campo:
 			</td>
-		</tr>-->
+		</tr>
 		<?php
 		foreach($member_fields as $member_field){
 			?>
 			<tr>
 				<td>
-					<?php echo $member_field['field_name'];?>
-					<?php if($member_field['required']){ ?>
+					<b><?php echo $member_field['field_name'];?>
+					<?php if($member_field['required']){ ?></b>
 					<span class="required">*</span>
 					<?php } ?>
 				</td>
@@ -76,7 +77,7 @@ $member_fields = $newsletter->get_member_fields($db);
 		</tr>
 		<tr>
 			<td>
-				<label>Groups</label>
+				<label>Grupos</label>
 			</td>
 			<td>
 				<?php
@@ -87,7 +88,7 @@ $member_fields = $newsletter->get_member_fields($db);
 		</tr>
 		<tr>
 			<td>
-				<label>Campaigns</label>
+				<label>Campanhas</label>
 			</td>
 			<td>
 				<?php
@@ -101,7 +102,7 @@ $member_fields = $newsletter->get_member_fields($db);
 				
 			</td>
 			<td>
-				 <input type="submit" name="save" value="Save Details" class="submit green">
+				 <input type="submit" name="save" value="Salvar Detalhes" class="submit green">
 			</td>
 		</tr>
 	</table>
