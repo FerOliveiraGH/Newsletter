@@ -495,19 +495,19 @@ $('.template').click(function(){
 	<?php } ?>
 </div>
 
-<h2><span>Passo 4:</span> Pre-Visualizar</h2>
+<h2><span>Passo 4:</span> Pré-Visualizar</h2>
 <div class="box">
 	<table cellpadding="5">
 		<tr>
 			<td>
-				Email de Pre-Visualização
+				Email de Prévia
 			</td>
 			<td>
 				<div class="form_field">
 				 <input type="text" name="preview_email" id="preview_email" value="<?php echo $newsletter->email;?>">
 				 </div>
 			</td>
-			<td><input type="submit" name="preview2" value="Enviar Pré-Visualização" onclick="$('#next_action_key').val('preview_email');$('#next_action_val').val($('#preview_email').val());" class="submit gray"> </td>
+			<td><input type="submit" name="preview2" value="Enviar Prévia" onclick="$('#next_action_key').val('preview_email');$('#next_action_val').val($('#preview_email').val());" class="submit gray"> </td>
 		</tr>
 	</table>
 	
@@ -518,9 +518,7 @@ $('.template').click(function(){
 
 <div class="box">
 	<p>Uma vez pré-visualizado,clique nesse botão para o próximo passo.</p>
-	<input type="submit" name="save_cont" value="Salvar Newsletter e Continuar o Próximo Passo..." onclick="this.form.action='?p=create&save=true&next=true'; this.form.target='_self';" 				 <input type="submit" name="preview2" value="Send Preview" onclick="$('#next_action_key').val('preview_email');$('#next_action_val').val($('#preview_email').val());" class="submit green"> 
+        <input type="submit" name="save_cont" value="Salvar Newsletter e Continuar o Próximo Passo..." onclick="this.form.action='?p=create&save=true&next=true'; this.form.target='_self';" class="submit green"> <input type="submit" name="preview2" value="Ver Prévia" onclick="$('#next_action_key').val('preview_email');$('#next_action_val').val($('#preview_email').val());" class="submit gray"> 
 </div>
-
-
 
 </form>

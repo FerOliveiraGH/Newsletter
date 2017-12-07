@@ -107,16 +107,16 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 
 <input type="hidden" name="newsletter_id" value="<?php echo $newsletter_id;?>">
 
-<a href="#" onclick="$('#other_settings').slideToggle(); return false;" class="submit orange right_float">show settings / edit newsletter again</a>
+<a href="#" onclick="$('#other_settings').slideToggle(); return false;" class="submit orange right_float">Mostrar Configurações / Editar newsletter novamente</a>
 
 <div id="other_settings" style="display:none;">
-<h2><span>Subject: <?php echo $newsletter_data['subject'];?></span></h2>
+<h2><span>Assunto: <?php echo $newsletter_data['subject'];?></span></h2>
 
 <div class="box">
 	<table cellpadding="5">
 		<tr>
 			<td>
-				<label>Email Subject</label>
+				<label>Assunto do Email</label>
 			</td>
 			<td>
 				<div class="form_field"><input type="text" class="input" name="subject" value="<?php echo $newsletter_data['subject'];?>"></div>
@@ -124,7 +124,7 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 		</tr>
 		<tr>
 			<td>
-				<label>From Name</label>
+				<label>Nome de Envio</label>
 			</td>
 			<td>
 				<div class="form_field"><input type="text" class="input" name="from_name" value="<?php echo $newsletter_data['from_name'];?>"></div>
@@ -132,7 +132,7 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 		</tr>
 		<tr>
 			<td>
-				<label>From Email</label>
+				<label>Email de Envio</label>
 			</td>
 			<td>
 				<div class="form_field"><input type="text" class="input" name="from_email" value="<?php echo $newsletter_data['from_email'];?>"></div>
@@ -140,7 +140,7 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 		</tr>
 		<tr>
 			<td>
-				<label>Bounce Email</label>
+				<label>Email de Resposta</label>
 			</td>
 			<td>
 				<div class="form_field"><input type="text" class="input" name="bounce_email" value="<?php echo $newsletter_data['bounce_email'];?>"></div>
@@ -160,24 +160,24 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 </div>
 
 
-<h2><span>Preview (optional)</span></h2>
+<h2><span>Prévia (opcional)</span></h2>
 
 <div class="box">
 	<table cellpadding="5">
 		<tr>
 			<td>
-				<label>Preview in Browser</label>
+				<label>Prévia no Navegador</label>
 			</td>
 			<td>
-				<div class="form_field"><input type="submit" name="preview1" value="Open Preview" onclick="this.form.action='preview.php'; popupwin=window.open('about:blank','popupwin','width=700,height=800,scrollbars=1,resizeable=1'); if(!popupwin){alert('Please disable popup blocker'); return false;} this.form.target='popupwin';"></div>
+				<div class="form_field"><input type="submit" name="preview1" value="Abrir Prévia" onclick="this.form.action='preview.php'; popupwin=window.open('about:blank','popupwin','width=700,height=800,scrollbars=1,resizeable=1'); if(!popupwin){alert('Please disable popup blocker'); return false;} this.form.target='popupwin';"></div>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<label>Preview in Email</label>
+				<label>Prévia no Email</label>
 			</td>
 			<td>
-				<div class="form_field"><input type="text" name="preview_email" id="preview_email" value="<?php echo $newsletter_data['from_email'];?>"><input type="submit" name="preview2" value="Send Preview" onclick="this.form.action='preview.php?email=true'; popupwin=window.open('about:blank','popupwin','width=500,height=400,scrollbars=1,resizeable=1'); if(!popupwin){alert('Please disable popup blocker'); return false;} this.form.target='popupwin';"></div>
+				<div class="form_field"><input type="text" name="preview_email" id="preview_email" value="<?php echo $newsletter_data['from_email'];?>"><input type="submit" name="preview2" value="Enviar Prévia" onclick="this.form.action='preview.php?email=true'; popupwin=window.open('about:blank','popupwin','width=500,height=400,scrollbars=1,resizeable=1'); if(!popupwin){alert('Please disable popup blocker'); return false;} this.form.target='popupwin';"></div>
 			</td>
 		</tr>
 	</table>
@@ -186,16 +186,16 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 
 </div>
 
-<h2><span>Send <?php echo (count($sends))?' newsletter out again':'';?></span></h2>
+<h2><span>Envio <?php echo (count($sends))?' newsletter out again':'';?></span></h2>
 
 <div class="box">
 	<table cellpadding="5">
 		<tr>
 			<td>
-				<label>Tick which groups you would like to send to</label>
+				<label>Marque quais grupos você gostaria de enviar</label>
 			</td>
 			<td>
-				<input type="checkbox" name="group_id[]" value="ALL"> <b>All Members</b><br>
+				<input type="checkbox" name="group_id[]" value="ALL"> <b>Todos os Membros</b><br>
 				<?php
 				$groups = $newsletter->get_groups($db);
 				foreach($groups as $group){ ?>
@@ -205,7 +205,7 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 		</tr>
 		<tr>
 			<td>
-				<label>Don't send to people who have already received this newsletter</label>
+				<label>Não envie para pessoas que já receberam este newsletter</label>
 			</td>
 			<td>
 				 <input type="checkbox" name="dont_send_duplicate" value="true" checked>
@@ -213,10 +213,10 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 		</tr>
 		<tr>
 			<td>
-				<label>Schedule send for a later date </label>
+				<label>Agendar envio para uma data posterior </label>
 			</td>
 			<td>
-				<div class="form_field"><input type="text" name="send_later" value="" size="10"></div> (date format: YYYY-MM-DD)
+				<div class="form_field"><input type="text" name="send_later" value="" size="10"></div> (formato da data: YYYY-MM-DD)
 			</td>
 		</tr>
 		<tr>
@@ -224,7 +224,7 @@ $sends = $newsletter->get_newsletter_sends($db,$newsletter_id);
 				
 			</td>
 			<td>
-				 <input type="submit" name="send" value="Send<?php echo (count($sends))?' again':'';?>!" class="submit green">
+				 <input type="submit" name="send" value="Enviar<?php echo (count($sends))?' again':'';?>!" class="submit green">
 			</td>
 		</tr>
 	</table>
@@ -318,8 +318,9 @@ if($sends){
 }
 ?>
 
-<h2><span>Other actions</span></h2>
+<h2><span>Outras ações</span></h2>
 <div class="box">
-	<a href="#" onclick="if(confirm('Are you sure, you want to delete this newsletter ?')){ window.location.href='?p=open&newsletter_id=<?php echo $newsletter_id;?>&delete=true'; } return false;" class="submit orange">Delete Newsletter</a>
+	<a href="#" onclick="if(confirm('Você tem certeza que quer deletar esse newsletter?')){ window.location.href='?p=open&newsletter_id=<?php echo $newsletter_id;?>&delete=true'; } return false;" class="submit orange">Deletar Newsletter</a>
+        <input type="button" name="back" value="Voltar" onclick="window.history.go(-1)" class="submit gray">
 </div>
 </form>

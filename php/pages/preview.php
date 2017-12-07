@@ -113,7 +113,7 @@ if(isset($_REQUEST['iframe']) && !$errors){
 
 <fieldset class="two_col left_col" style="width: 96%; margin-left: 10px;">
 	<h2><span>Newsletter:</span> <?php echo htmlspecialchars($newsletter_data['subject']);?></h2>
-	<p><a href="?p=create&newsletter_id=<?php echo $newsletter_id;?>#editor" class="submit orange">&laquo; Return to Newsletter Editor</a></p>
+	<p><a href="?p=create&newsletter_id=<?php echo $newsletter_id;?>#editor" class="submit orange">&laquo; Retornar a Editar Newsletter</a></p>
 	<iframe src="?p=preview&small&iframe=true&newsletter_id=<?php echo $newsletter_id;?>" frameborder="0" style="border:1px solid #CCCCCC; width:100%; height:600px;"></iframe>
 </fieldset>
 
