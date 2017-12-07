@@ -6,7 +6,7 @@
  * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
-
+$page_title = "Configurações";
 $settings = $newsletter->get_settings($db);
 if($_REQUEST['save']){
 	if(_DEMO_MODE){
