@@ -1,10 +1,9 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 
@@ -21,43 +20,43 @@ $groups = $newsletter->get_groups($db);
 <input type="hidden" name="sync_id" value="<?php echo $sync_id;?>">
 
 <div class="box">
-	<p>Name this syncronization (eg: Shopping cart members)</p>
+	<p>Nome da sincronização (obs: Carrinho de Membros)</p>
 	<table cellpadding="4">
 		<tr>
-			<td>Sync Name:</td>
+			<td>Nome:</td>
 			<td><input type="text" name="sync_name" id="sync_name" value="<?php echo $sync['sync_name'];?>"></td>
 		</tr>
 	</table>
 	
 	
-	<p>Please enter the MySQL connection details for the database you wish to sync with:</p>
+	<p>Digite os detalhes da conexão do MySQL para o banco de dados com o qual você deseja sincronizar:</p>
 	<table cellpadding="4">
 		<tr>
-			<td>Database Name:</td>
+			<td>Nome da Base de Dados:</td>
 			<td><input type="text" name="db_name" id="db_name" value="<?php echo $sync['db_name'];?>"></td>
 		</tr>
 		<tr>
-			<td>Database Username:</td>
+			<td>Usuario da Base de Dados:</td>
 			<td><input type="text" name="db_username" id="db_username" value="<?php echo $sync['db_username'];?>"></td>
 		</tr>
 		<tr>
-			<td>Database Password:</td>
+			<td>Senha da Base de Dados:</td>
 			<td><input type="text" name="db_password" id="db_password" value="<?php echo $sync['db_password'];?>"></td>
 		</tr>
 		<tr>
-			<td>Database Host:</td>
+			<td>Host da Base de Dados:</td>
 			<td><input type="text" name="db_host" id="db_host" value="<?php echo $sync['db_host'];?>"></td>
 		</tr>
 	</table>
 	
-	<p>Please enter the information for the database table you wish to sync with:</p>
+	<p>Digite as informações da tabela de banco de dados com a qual deseja sincronizar:</p>
 	<table cellpadding="4">
 		<tr>
-			<td>Table Name:</td>
+			<td>Nome da Tabela:</td>
 			<td><input type="text" name="db_table" id="db_table" value="<?php echo $sync['db_table'];?>"></td>
 		</tr>
 		<tr>
-			<td>Primary Key Name:</td>
+			<td>Primary Key:</td>
 			<td><input type="text" name="db_table_key" id="db_table_key" value="<?php echo $sync['db_table_key'];?>"></td>
 		</tr>
 		<tr>
@@ -74,10 +73,10 @@ $groups = $newsletter->get_groups($db);
 		</tr>
 	</table>
 	
-	<p>All members in this sync should be added to these local groups:</p>
+	<p>Todos os membros dessa sincronização devem ser adicionados a esses grupos locais:</p>
 	<table cellpadding="4">
 		<tr>
-			<td>Groups:</td>
+			<td>Grupos:</td>
 			<td>
 				<?php
 				foreach($groups as $group){ ?>
@@ -87,18 +86,18 @@ $groups = $newsletter->get_groups($db);
 		</tr>
 	</table>
 	
-	<p>Advanced</p>
+	<p>Avançado</p>
 	<table cellpadding="4">
 		<tr>
-			<td>Redirect to this url when trying to edit this members details. {USER_ID} dynamic field:</td>
+			<td>Redirecione para esse URL ao tentar editar os detalhes desses membros. {USER_ID} Campo Dinamico:</td>
 			<td><input type="text" name="edit_url" id="edit_url" value="<?php echo $sync['edit_url'];?>"></td>
 		</tr>
 	</table>
 	
-	<p>Once you are happy with these details click save below and we will test the connection.</p>
+	<p>Uma vez que você esteja feliz com esses detalhes, clique em salvar abaixo e vamos testar a conexão.</p>
 	<table cellpadding="4">
 		<tr>
-			<td><input type="submit" name="save" value="Save &amp; Import Members"></td>
+                    <td><input type="submit" name="save" class="submit green" value="Salvar &amp; Importar Membros"></td>
 		</tr>
 	</table>
 	

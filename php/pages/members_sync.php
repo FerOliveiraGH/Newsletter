@@ -1,17 +1,16 @@
 <?php
 /**
- * Pro Newsletter System
- * Author: Aman Virk
- * Version: 1.0 
- * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer
- * InSite Contribution :- Andy Charles
+ * Newsletter
+ * Author: Fernando Oliveira
+ * Version: 2.0 
+ * Open Source Contribution :- mailchimp.com, tinyMce, phpMailer, Aman Virk
  * 
 **/
 ?>
 
-<h1>Members Sync</h1>
+<h1>Sincronizar Membros</h1>
 
-<p>Syncronize your members list with an existing mysql database table.</p>
+<p>Sincronize sua lista de membros com uma tabela de banco de dados mysql existente.</p>
 
 <?php if($_REQUEST['sync_id']){
 	$sync_id = $_REQUEST['sync_id'];
@@ -44,7 +43,7 @@
 }else{ 
 	$syncs = $newsletter->get_syncs($db);
 	?>
-	<a href="?p=members_sync&sync_id=new">Create new sync</a>
+	<a href="?p=members_sync&sync_id=new">Criar nova sincronização</a>
 	<?php
 	if($syncs){ ?>
 	<h2>Existing Syncronizations:</h2>
@@ -52,13 +51,13 @@
 	<table cellpadding="5">
 		<thead>
 			<tr>
-				<th>Sync Name</th>
+				<th>Nome</th>
 				<th>DB Host</th>
-				<th>DB Name</th>
-				<th>Table Name</th>
-				<th>Number of Members</th>
-				<th>Last Sync</th>
-				<th>Action</th>
+				<th>DB Nome</th>
+				<th>Nome Tabela</th>
+				<th>Número de Membros</th>
+				<th>Última Sincro.</th>
+				<th>Ação</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -73,7 +72,7 @@
 					<td><?php echo $sync['db_table'];?></td>
 					<td><?php echo $sync['member_count'];?></td>
 					<td><?php echo print_date($sync['last_sync'],true);?></td>
-					<td><a href="?p=members_sync&sync_id=<?php echo $sync['sync_id'];?>">Edit</a></td>
+					<td><a href="?p=members_sync&sync_id=<?php echo $sync['sync_id'];?>">Editar</a></td>
 				</tr>
 			
 			<?php } ?>
