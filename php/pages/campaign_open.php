@@ -26,7 +26,7 @@ if(isset($_REQUEST['delete'])){
 }
 if(isset($_REQUEST['remove_newsletter_id'])){
 	if(_DEMO_MODE){
-		echo "Sorry, cant delete campaign newsletters in demo mode... ";
+		echo "Desculpe, não é possivel deletar campanha em demonstração... ";
 		exit;
 	}
 	$newsletter->delete_campaign_newsletter($db,$campaign_id,$_REQUEST['remove_newsletter_id']);
