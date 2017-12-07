@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `group` (
   PRIMARY KEY  (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT IGNORE INTO `group` VALUES (1, 'Default Newsletter', 1);
+INSERT IGNORE INTO `group` VALUES (1, 'Padrão', 1);
 
 
 CREATE TABLE IF NOT EXISTS `image` (
