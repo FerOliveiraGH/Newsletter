@@ -159,8 +159,8 @@ CREATE TABLE IF NOT EXISTS `link_open` (
 
 CREATE TABLE IF NOT EXISTS `member` (
   `member_id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `join_date` date NOT NULL,
   `ip_address` varchar(15) DEFAULT NULL,

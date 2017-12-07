@@ -92,7 +92,7 @@ if(isset($_REQUEST['import'])){
 				$import_count++;
 			}
 		}
-		echo "Successfully imported $import_count members. Lets hope it worked! <a href='?p=members'>click here</a> to find out!";
+		echo "Importado com Sucesso, $import_count membro(s). Espero que tenha funcionado! <a href='?p=members'>clique aqui</a> para descobrir!";
 		exit;
 	}
 	
