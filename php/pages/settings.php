@@ -102,6 +102,15 @@ if($_REQUEST['save']){
 
 </fieldset>	
 
+<div style="width: 100%;float: left">
+    <h2><span>Sincronizar Membros</span></h2>
+    <div class="box">
+        <p>Sincronize sua lista de membros com uma tabela de banco de dados mysql existente.</p>
+        <div style="margin-left: 10px">
+            <a href="?p=members_sync" class="submit green" style="padding: 0 10px 10px 10px;">Sincronizar Membros</a>
+        </div>
+    </div>
+</div>
 <div class="clear"></div>
 <?php
 $groups = $newsletter->get_groups($db);
