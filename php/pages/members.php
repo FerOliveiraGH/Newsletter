@@ -408,7 +408,7 @@ if($_REQUEST['edit_member_id']){
 		<tfoot>
 			<tr>
 				<th align="center" colspan="<?php echo 10+count($member_fields);?>" style="text-align:center;">
-					Page: 
+					Pagina: 
 					<?php
 					
 					
