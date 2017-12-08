@@ -322,6 +322,6 @@ if($sends){
 <h2><span>Outras ações</span></h2>
 <div class="box">
 	<a href="#" onclick="if(confirm('Você tem certeza que quer deletar esse newsletter?')){ window.location.href='?p=open&newsletter_id=<?php echo $newsletter_id;?>&delete=true'; } return false;" class="submit orange">Deletar Newsletter</a>
-        <input type="button" name="back" value="Voltar" onclick="window.history.go(-1)" class="submit gray">
+        <input type="button" name="back" value="Voltar" onclick="window.location.href='index.php?p=past'" class="submit gray">
 </div>
 </form>
