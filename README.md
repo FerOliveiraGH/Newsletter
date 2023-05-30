@@ -1,4 +1,4 @@
-**Newsletter**
+# Newsletter
 
 Author: [Fernando Oliveira](https://github.com/FerOliveiraGH)
   
